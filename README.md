@@ -4,6 +4,7 @@
 ## Current Stack: 
     React
     JavaScript
+    GSAP
     HTML
     Scss
 
@@ -12,7 +13,7 @@
     npx create-react-app
     npm install node-sass@4.14.1 
         (version specific due to originator's current computing power and limitations)
-
+    npm install gsap
 _____
 
 ###    Intended features:
@@ -43,11 +44,11 @@ _____
         { Smoke effect upon Loading/Welcome page }
     => ref. link(s) below:
 
-<a href="https://designmodo.com/smoke-transitions/">
-    Design Modo: Smoke Transitions
-</a>
-    
-    || https://www.npmjs.com/package/smoke-effect-react
+<a href="https://designmodo.com/smoke-transitions/">Design Modo: Smoke Transitions</a>
+
+    || 
+
+    https://www.npmjs.com/package/smoke-effect-react
         => npm i -S smoke-effect-react
         => import SmokeElement from "smoke-effect-react";
         => see: https://codepen.io/teolitto/pen/KwOVvL

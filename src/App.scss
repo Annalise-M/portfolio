@@ -40,8 +40,8 @@ img {
   position: fixed;
   color: rgb(124, 124, 124);
   font-size: 12px;
-  font-family: 'Poppins';
   letter-spacing: 2px;
+  font-family: 'Poppins';
   right: 100px;
   line-height: 80px;
   z-index: 1;
@@ -68,13 +68,13 @@ img {
   z-index: 1;
 }
 
-.m17 {
+.ml7 {
   position: relative;
   font-weight: 900;
   font-size: 3.7em;
 }
 
-.m17 .text-wrapper {
+.ml7 .text-wrapper {
   position: relative;
   display: inline-block;
   padding-top: 0.2em;
@@ -83,8 +83,8 @@ img {
   overflow: hidden;
 }
 
-.m17 .letter {
-  transform-origin: 0% 100%;
+.ml7 .letters {
+  transform-origin: 0 100%;
   display: inline-block;
   line-height: 1em;
 }
@@ -167,7 +167,7 @@ button {
   z-index: 1;
   color: grey;
   font-size: 15px;
-  right: 0;
+  right: 0%;
   font-family: 'Roboto';
   font-weight: 100;
   margin-right: 2em;
@@ -194,11 +194,11 @@ button {
   opacity: 0.7;
 }
 
-.zenOne img {
+.ringOne img {
   animation: rotateFirstRing 2s linear infinite;
 }
 
-.zenTwo img {
+.ringTwo img {
   animation: rotateFirstRing 8s linear infinite;
 }
 
