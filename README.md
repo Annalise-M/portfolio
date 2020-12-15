@@ -14,6 +14,7 @@
     npm install node-sass@4.14.1 
         (version specific due to originator's current computing power and limitations)
     npm install gsap
+    npm i react-helmet
 _____
 
 ###    Intended features:
