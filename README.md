@@ -15,6 +15,7 @@
         (version specific due to originator's current computing power and limitations)
     npm install gsap
     npm i react-helmet
+    npm install react react-dom
 _____
 
 ###    Intended features:

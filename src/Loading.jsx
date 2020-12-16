@@ -1,35 +1,40 @@
 import React from 'react';
+import Scripts from './helmet';
 import originalZen from './images/originalZen.png';
+import './App.scss';
 
 export default function Loading() {
   return (
     <>
-     
-      <div className="container">
+      <header>
+        <Scripts/>
+      </header>
 
-        <div className="loading-screen"></div>
-       
-        <div className="loader">
-          <div className="ringOne ring"></div>
-          <img src={originalZen} alt="" />
+      <section>
+        <div className="container">
+
+          <div className="loading-screen"></div>
+            <div className="loader">
+              <div className="ringOne ring">
+                <img src={originalZen} alt="" />
+              </div>
+            </div>
+            <div className="ringTwo ring">
+              <img src={originalZen} alt="" />
+            </div>
+          {/* think about replacing logo with NameBranding */}
+        <div className="logo">
+          <ion-icon name="git-compare"></ion-icon>
+            FilesFiddle
+        </div>
+        
+        <div className="contact">GET IN TOUCH</div>
+
+        <div className="menu">
+          <ion-icon name="options"></ion-icon>
         </div>
 
-        <div className="ringTwo ring">
-          <img src={originalZen} alt="" />
-        </div>
-        {/* think about replacing logo with NameBranding */}
-      <div className="logo">
-        <ion-icon name="git-compare"></ion-icon>
-          FilesFiddle
-      </div>
-      
-      <div className="contact">GET IN TOUCH</div>
-
-      <div className="menu">
-        <ion-icon name="options"></ion-icon>
-      </div>
-
-      <div className="header">
+        <div className="header">
 
         {/* NOTE: Change h1 classNaming convention */}
         <h1 className="ml7" id="title">
@@ -68,7 +73,8 @@ export default function Loading() {
       </div>
 
       </div>
-      <script src="script.js"></script>
+        <script src="./script.js"></script>
+      </section>
     </>
   )
 }

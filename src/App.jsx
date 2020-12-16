@@ -5,7 +5,9 @@ import Loading from './Loading';
 function App() {
   return (
     <>
+    <header>
       <Scripts />
+    </header>
       <Loading />
     </>
   );
