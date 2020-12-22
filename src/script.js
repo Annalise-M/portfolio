@@ -1,9 +1,17 @@
-import { useEffect } from 'react';
-import { TweenMax, Expo } from 'gsap/gsap-core';
+import { createRef, useEffect } from 'react';
+import gsap, { TweenMax, Expo } from 'gsap/gsap-core';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 import originalZen from './images/originalZen.png';
 import './App.scss';
 
+
+gsap.registerPlugin(CSSPlugin);
+
+
 const Loader = () => {
+
+  const item1 = createRef();
+  const zenLogo = createRef();
 
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
@@ -108,19 +116,19 @@ const Loader = () => {
 
   return (
     <section>
-
-        <div className="container">
-
-          <div className="loading-screen"></div>
-            <div className="loader">
-              <div className="ringOne ring">
-                <img src={originalZen} alt="" />
-              </div>
+      <div className="container">
+        <div className="loading-screen" ref={item1}></div>
+          <div className="loader">
+            <div className="ringOne ring">
+              <img src={originalZen} alt="" />
+            </div>
             </div>
             <div className="ringTwo ring">
               <img src={originalZen} alt="" />
             </div>
-            <span className="letters">Annalise Murphy</span>
+            <div className="logo" ref={zenLogo}>
+              <span className="letters">Annalise Murphy</span>
+            </div>
       </div>
     </section>
   )
