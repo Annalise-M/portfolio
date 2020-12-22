@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default class Scripts extends React.Component {
+export default class Headers extends React.Component {
   render() {
     return (
-      
         <Helmet className="header-scripts">
 
           {/* stylesheet */}
@@ -17,7 +16,7 @@ export default class Scripts extends React.Component {
           <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js" type="module" />
 
           {/* nomodule ion-icons */}
-          <script src="http://localhost:3000/static/js/ionicons/ionicons.js"  nomodule="text/javascript" />
+          {/* <script src="http://localhost:3000/static/js/ionicons/ionicons.js"  nomodule="text/javascript" /> */}
 
           {/* gsap */}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js" type="text/javascript" />
@@ -33,7 +32,6 @@ export default class Scripts extends React.Component {
           <script src="/script.js" />
 
         </Helmet>
-   
     )
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Scripts from './helmet';
+import Headers from './Helmet';
 import originalZen from './images/originalZen.png';
 import './App.scss';
 
@@ -7,7 +7,7 @@ export default function Loading() {
   return (
     <>
       <header>
-        <Scripts/>
+        <Headers />
       </header>
 
       <section>
