@@ -81,9 +81,9 @@ const Loader = () => {
       ease: Expo.easeInOut
     });
 
-    const t1 = new TimelineMax();
+    const tl = new TimelineMax();
 
-    t1.from('.ringOne', 4, {
+    tl.from('.ringOne', 4, {
       delay: 0.4,
       opacity: 0,
       y: 40,
@@ -99,8 +99,7 @@ const Loader = () => {
     }, '-=5');
 
     const textWrapper = document.querySelector('.ml7 .letters');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, '<span className={letter}>$&</span>');
-
+    textWrapper.innerHTML = textWrapper.textContent.replace('/([^\x00-\x80]|\w)/g', '<span className={letter}>$&</span>');
 
   }, []);
 
