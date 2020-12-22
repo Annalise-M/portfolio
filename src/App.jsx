@@ -1,10 +1,12 @@
 import './App.scss';
-import Loading from './Loading';
+import Headers from './Helmet';
+import Loader from './script';
 
 function App() {
   return (
     <>
-      <Loading />
+      <Headers />
+      <Loader />
     </>
   );
 }
