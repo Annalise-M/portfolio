@@ -1,9 +1,9 @@
 import { createRef, useEffect } from 'react';
 import gsap, { TweenMax, Expo } from 'gsap/gsap-core';
 import { CSSPlugin } from 'gsap/CSSPlugin';
+import { IoIosOptions } from "react-icons/io";
 import originalZen from './images/originalZen.png';
 import './App.scss';
-
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -12,6 +12,8 @@ const Loader = () => {
 
   const item1 = createRef();
   const zenLogo = createRef();
+  const options = createRef();
+  const bottomText = createRef();
 
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
@@ -27,19 +29,19 @@ const Loader = () => {
       ease: Expo.easeInOut
     });
 
-    // TweenMax.from('.options', 3, {
-    //   delay: 8.4,
-    //   opacity: 0,
-    //   y: 20,
-    //   ease: Expo.easeInOut
-    // });
+    TweenMax.from('.options', 3, {
+      delay: 8.5,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
 
-    // TweenMax.from('.bottom-text', 3, {
-    //   delay: 8.7,
-    //   opacity: 0,
-    //   y: 20,
-    //   ease: Expo.easeInOut
-    // });
+    TweenMax.from('.bottomText', 3, {
+      delay: 8.7,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
 
     // TweenMax.from('.copyright', 3, {
     //   delay: 8.9,
@@ -129,7 +131,11 @@ const Loader = () => {
             <div className="logo" ref={zenLogo}>
               <span className="letters">Annalise Murphy</span>
             </div>
+            <div className="menu">
+              <IoIosOptions name="options" ref={options} size={35} />
+            </div>
       </div>
+        <div className="bottom-text" ref={bottomText}>Annalise Murphy Dev</div>
     </section>
   )
 };
