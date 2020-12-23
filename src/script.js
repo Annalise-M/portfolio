@@ -1,7 +1,13 @@
+import gsap, { TweenMax, Expo, Power3 } from 'gsap/gsap-core';
 import { createRef, useEffect } from 'react';
-import gsap, { TweenMax, Expo } from 'gsap/gsap-core';
 import { CSSPlugin } from 'gsap/CSSPlugin';
-import { IoIosOptions } from "react-icons/io";
+import { 
+  IoIosOptions,
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoTwitter,
+  IoLogoOctocat
+} from "react-icons/io";
 import originalZen from './images/originalZen.png';
 import './App.scss';
 
@@ -14,6 +20,8 @@ const Loader = () => {
   const zenLogo = createRef();
   const options = createRef();
   const bottomText = createRef();
+  const copyright = createRef();
+  const mediaUlLi = createRef();
 
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
@@ -43,19 +51,19 @@ const Loader = () => {
       ease: Expo.easeInOut
     });
 
-    // TweenMax.from('.copyright', 3, {
-    //   delay: 8.9,
-    //   opacity: 0,
-    //   y: 20,
-    //   ease: Expo.easeInOut
-    // });
+    TweenMax.from('.copyright', 3, {
+      delay: 8.9,
+      opacity: 0,
+      y: 20,
+      ease: Expo.easeInOut
+    });
 
-    // TweenMax.staggerFrom('.media ul li', 2, {
-    //   delay: 8.7,
-    //   opacity: 0,
-    //   y: 20,
-    //   ease: Power3.easeInOut
-    // }, 0.1);
+    TweenMax.staggerFrom('.media ul li', 2, {
+      delay: 8.7,
+      opacity: 0,
+      y: 20,
+      ease: Power3.easeInOut
+    }, 0.1);
 
     // TweenMax.from('.menu', 3, {
     //   delay: 8.8,
@@ -132,10 +140,22 @@ const Loader = () => {
               <span className="letters">Annalise Murphy</span>
             </div>
             <div className="menu">
-              <IoIosOptions name="options" ref={options} size={35} />
+              <IoIosOptions name="options" ref={options} size={33} />
             </div>
       </div>
-        <div className="bottom-text" ref={bottomText}>Annalise Murphy Dev</div>
+        <div className="bottom-text" ref={bottomText}>Input something here</div>
+        <div className={copyright} ref={copyright}>2020 by Annalise Murphy. All rights reserved.
+        </div>
+
+        <div className="media" ref={mediaUlLi}>
+        <ul>
+          <li><IoLogoFacebook className="logo-facebook" /></li>
+          <li><IoLogoInstagram className="logo-instagram" /></li>
+          <li><IoLogoTwitter className="logo-twitter" /></li>
+          {/* change to git hub className */}
+          <li><IoLogoOctocat className="logo-youtube" /></li>
+        </ul>
+      </div>
     </section>
   )
 };
