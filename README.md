@@ -16,6 +16,10 @@
     npm install gsap
     npm i react-helmet
     npm install react react-dom
+
+    gsap.registerPlugin(MotionPathPlugin);
+    gsap.registerPlugin(ExpoScaleEase);
+    gsap.registerPlugin(CSSPlugin);
 _____
 
 ###    Intended features:
