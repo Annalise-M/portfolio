@@ -22,7 +22,7 @@ export default function Loading() {
             <div className="ringTwo ring">
               <img src={originalZen} alt="" />
             </div>
-          {/* think about replacing logo with NameBranding */}
+          
         <div className="logo">
           <ion-icon name="git-compare"></ion-icon>
             FilesFiddle
@@ -36,7 +36,7 @@ export default function Loading() {
 
         <div className="header">
 
-        {/* NOTE: Change h1 classNaming convention */}
+        
         <h1 className="ml7" id="title">
           <span className="text-wrapper">
             <span className="letters">Annalise Murphy</span>
