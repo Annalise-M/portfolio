@@ -1,8 +1,9 @@
 import gsap, { 
   TweenMax,
   Power3,
-  TimelineMax 
+  // TimelineMax 
 } from 'gsap/gsap-core';
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ExpoScaleEase } from 'gsap/EasePack';
 import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
@@ -17,8 +18,9 @@ import {
 import originalZen from './images/originalZen.png';
 import{ styles }from './App.scss';
 
-gsap.registerPlugin(CSSPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
+gsap.registerPlugin(CSSPlugin);
 
 export default function Loader() {
 
@@ -143,22 +145,53 @@ export default function Loader() {
 
   
   useEffect(() => {
-    const tl = new TimelineMax();
-    
-    tl.from('.ringOne', 4, {
-      delay: 0.4,
+    gsap.from('.ringOne', 4, {
+      delay: 0.6,
       opacity: 0,
-      y: 40,
+      xPercent: -50,
+      yPercent: -50,
+      transformOrigin:'50% 50%',
       ease: ExpoScaleEase.easeInOut
-    }, '-=5').to('.ringOne ring', 4, {
-      delay: 0.9,
+    });
+
+    gsap.to('.ringOne', 4, {
+      delay: 0.6,
       x: 40,
-      ease: ExpoScaleEase.easeInOut
-    }, '-=5').to('.ringTwo ring', 4, {
-      delay: 0.9,
-      x: 40,
-      ease: ExpoScaleEase.easeInOut
+      motionPath:{
+        path: 'M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106',
+        align: '#path',
+        autoRotate: true,
+        ease: ExpoScaleEase.easeInOut
+      }
     }, '-=5');
+
+    gsap.to('.ringTwo', 4, {
+      delay: 0.9,
+      motionPath:{
+        path: 'M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106',
+        align: '#path',
+        autoRotate: true,
+        ease: ExpoScaleEase.easeInOut
+      }
+    }, '-=5');
+ 
+
+    // const tl = new TimelineMax();
+    
+    // tl.from('.ringOne', 4, {
+    //   delay: 0.4,
+    //   opacity: 0,
+    //   y: 40,
+    //   ease: ExpoScaleEase.easeInOut
+    // }, '-=5').to('.ringOne ring', 4, {
+    //   delay: 0.9,
+    //   x: 40,
+    //   ease: ExpoScaleEase.easeInOut
+    // }, '-=5').to('.ringTwo ring', 4, {
+    //   delay: 0.9,
+    //   x: 40,
+    //   ease: ExpoScaleEase.easeInOut
+    // }, '-=5');
  
   }, [])
 
@@ -231,6 +264,10 @@ export default function Loader() {
 
         </div>
         <script src="./script.js"></script>
+        <script src="/script/gsap.min.js"></script>
       </section>
     </>
   };
+
+
+  // M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106 
