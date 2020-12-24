@@ -1,5 +1,5 @@
 import gsap, { TweenMax, Expo, Power3 } from 'gsap/gsap-core';
-import { createRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 import { 
   IoIosOptions,
@@ -9,19 +9,21 @@ import {
   IoLogoOctocat
 } from "react-icons/io";
 import originalZen from './images/originalZen.png';
-import './App.scss';
+import{ styles }from './App.scss';
 
 gsap.registerPlugin(CSSPlugin);
 
 
-const Loader = () => {
+// const ref = React.createRef();
 
-  const item1 = createRef();
-  const zenLogo = createRef();
-  const options = createRef();
-  const bottomText = createRef();
-  const copyright = createRef();
-  const mediaUlLi = createRef();
+export default function Loader() {
+
+  const Item1 = React.forwardRef();
+  const zenLogo = React.forwardRef();
+  const options = React.forwardRef();
+  const bottomText = React.forwardRef();
+  const copyright = React.forwardRef();
+  const mediaUlLi = React.forwardRef();
 
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
@@ -44,7 +46,7 @@ const Loader = () => {
       ease: Expo.easeInOut
     });
 
-    TweenMax.from('.bottomText', 3, {
+    TweenMax.from('.bottom-text', 3, {
       delay: 8.7,
       opacity: 0,
       y: 20,
@@ -120,44 +122,40 @@ const Loader = () => {
 
     
   }, []);
-  
-  // const textWrapper = document.querySelector('.ml7 .letters');
-  // textWrapper.innerHTML = textWrapper.textContent.replace('/([^\x00-\x80]|\w)/g', <span className="">$&</span>);
 
-  return (
-    <section>
-      <div className="container">
-        <div className="loading-screen" ref={item1}></div>
-          <div className="loader">
-            <div className="ringOne ring">
-              <img src={originalZen} alt="" />
-            </div>
-            </div>
-            <div className="ringTwo ring">
-              <img src={originalZen} alt="" />
-            </div>
-            <div className="logo" ref={zenLogo}>
-              <span className="letters">Annalise Murphy</span>
-            </div>
-            <div className="menu">
-              <IoIosOptions name="options" ref={options} size={33} />
-            </div>
-      </div>
-        <div className="bottom-text" ref={bottomText}>Input something here</div>
-        <div className={copyright} ref={copyright}>2020 by Annalise Murphy. All rights reserved.
+    return <>
+      <section styles={styles}>
+        <div className="container">
+          <div className="loading-screen" ref={Item1}></div>
+            <div className="loader">
+              <div className="ringOne ring">
+                <img src={originalZen} alt="" />
+              </div>
+              </div>
+              <div className="ringTwo ring">
+                <img src={originalZen} alt="" />
+              </div>
+              <div className="logo" ref={zenLogo}>
+                <span className="letters">Annalise Murphy</span>
+              </div>
+              <div className="menu">
+                <IoIosOptions className="options" ref={options} size={33} />
+              </div>
         </div>
+          <div className="bottom-text" ref={bottomText}>Input something here</div>
+          <div className="copyright" ref={copyright}>2020 by Annalise Murphy. All rights reserved.
+          </div>
 
-        <div className="media" ref={mediaUlLi}>
-        <ul>
-          <li><IoLogoFacebook className="logo-facebook" /></li>
-          <li><IoLogoInstagram className="logo-instagram" /></li>
-          <li><IoLogoTwitter className="logo-twitter" /></li>
-          {/* change to git hub className */}
-          <li><IoLogoOctocat className="logo-youtube" /></li>
-        </ul>
-      </div>
-    </section>
-  )
-};
-
-export default Loader;
+          <div className="media" ref={mediaUlLi}>
+          <ul>
+            <li><IoLogoFacebook className="logo-facebook" /></li>
+            <li><IoLogoInstagram className="logo-instagram" /></li>
+            <li><IoLogoTwitter className="logo-twitter" /></li>
+            {/* change to git hub className */}
+            <li><IoLogoOctocat className="logo-youtube" /></li>
+          </ul>
+        </div>
+        <script src="./script.js"></script>
+      </section>
+    </>
+  };
