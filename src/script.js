@@ -145,7 +145,7 @@ export default function Loader() {
 
   
   useEffect(() => {
-    gsap.from('.ringOne', 4, {
+    gsap.timeline('.ringOne', 4, {
       delay: 0.6,
       opacity: 0,
       xPercent: -50,
@@ -232,6 +232,8 @@ export default function Loader() {
             </h1>
 
           <p id="tagline" className="p1" ref={p1}>
+            Just sit tight! More to come very soon!
+            <br />
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam dignissimos tenetur similique magni adipisci perferendis totam tempore laborum sint beatae modi necessitatibus cumque debitis aut, velit odio dolorum, dolorem aspernatur?
           </p>
 
@@ -243,14 +245,13 @@ export default function Loader() {
 
           <div className="buttons">
             <button id="one" ref={one}>LEARN MORE</button>
-            <button id="two" ref={two}>BUY NOW</button>
+            <button id="two" ref={two}>CURIOUS MINDS INQUIRE HERE</button>
           </div>
         </div>
 
-          <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
+        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
               
-          <div className="copyright" ref={copyright}>2020 by Annalise Murphy. All rights reserved.
-          </div>
+        <div className="copyright" ref={copyright}>2020 by Annalise Murphy. All rights reserved.</div>
               
         <div className="media" ref={mediaUlLi}>
           <ul>
@@ -268,6 +269,3 @@ export default function Loader() {
       </section>
     </>
   };
-
-
-  // M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106 
