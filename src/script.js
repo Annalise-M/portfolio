@@ -152,7 +152,7 @@ export default function Loader() {
       yPercent: -50,
       transformOrigin:'50% 50%',
       ease: ExpoScaleEase.easeInOut
-    });
+    }, '-=5');
 
     gsap.to('.ringOne', 4, {
       delay: 0.6,
@@ -251,7 +251,7 @@ export default function Loader() {
 
         <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
               
-        <div className="copyright" ref={copyright}>2020 by Annalise Murphy. All rights reserved.</div>
+        <div className="copyright" ref={copyright}>&#169;2020 by Annalise Murphy. All rights reserved.</div>
               
         <div className="media" ref={mediaUlLi}>
           <ul>
@@ -264,8 +264,8 @@ export default function Loader() {
         </div>
 
         </div>
-        <script src="./script.js"></script>
         <script src="/script/gsap.min.js"></script>
+        <script src="./script.js"></script>
       </section>
     </>
   };
