@@ -39,7 +39,6 @@ export default function Loader() {
   const ringOne = React.forwardRef();
   const ringTwo = React.forwardRef();
 
-
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
       delay: 6.6,
@@ -123,24 +122,6 @@ export default function Loader() {
       y: 20,
       ease: ExpoScaleEase.easeInOut
     });
-    
-    // const tl = gsap.timeline();
-
-    // tl.from('.ringOne', 4, {
-    //   delay: 0.4,
-    //   opacity: 0,
-    //   y: 40,
-    //   ease: Expo.easeInOut
-    // }, '-=5').to('.ringOne', 4, {
-    //   delay: 0.4,
-    //   x: 40,
-    //   ease: Expo.easeInOut
-    // }).to('.ringTwo', 4, {
-    //   delay: 0.9,
-    //   x: 40,
-    //   ease: Expo.easeInOut
-    // }, '-=5');
-
   }, []);
 
   
@@ -174,26 +155,7 @@ export default function Loader() {
         ease: ExpoScaleEase.easeInOut
       }
     }, '-=5');
- 
-
-    // const tl = new TimelineMax();
-    
-    // tl.from('.ringOne', 4, {
-    //   delay: 0.4,
-    //   opacity: 0,
-    //   y: 40,
-    //   ease: ExpoScaleEase.easeInOut
-    // }, '-=5').to('.ringOne ring', 4, {
-    //   delay: 0.9,
-    //   x: 40,
-    //   ease: ExpoScaleEase.easeInOut
-    // }, '-=5').to('.ringTwo ring', 4, {
-    //   delay: 0.9,
-    //   x: 40,
-    //   ease: ExpoScaleEase.easeInOut
-    // }, '-=5');
- 
-  }, [])
+  }, []);
 
     return <>
       <section styles={styles}>
@@ -253,7 +215,7 @@ export default function Loader() {
 
         <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
               
-        <div className="copyright" ref={copyright}>&#169;2020 by Annalise Murphy. All rights reserved.</div>
+        <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
               
         <div className="media" ref={mediaUlLi}>
           <ul>
