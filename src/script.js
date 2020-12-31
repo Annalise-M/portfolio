@@ -1,8 +1,9 @@
 import gsap, { 
   TweenMax,
   Power3,
-  TimelineMax 
+  // TimelineMax 
 } from 'gsap/gsap-core';
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ExpoScaleEase } from 'gsap/EasePack';
 import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
@@ -17,8 +18,9 @@ import {
 import originalZen from './images/originalZen.png';
 import{ styles }from './App.scss';
 
-gsap.registerPlugin(CSSPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
+gsap.registerPlugin(CSSPlugin);
 
 export default function Loader() {
 
@@ -36,7 +38,6 @@ export default function Loader() {
   const two = React.forwardRef();
   const ringOne = React.forwardRef();
   const ringTwo = React.forwardRef();
-
 
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
@@ -121,46 +122,40 @@ export default function Loader() {
       y: 20,
       ease: ExpoScaleEase.easeInOut
     });
-    
-    // const tl = gsap.timeline();
-
-    // tl.from('.ringOne', 4, {
-    //   delay: 0.4,
-    //   opacity: 0,
-    //   y: 40,
-    //   ease: Expo.easeInOut
-    // }, '-=5').to('.ringOne', 4, {
-    //   delay: 0.4,
-    //   x: 40,
-    //   ease: Expo.easeInOut
-    // }).to('.ringTwo', 4, {
-    //   delay: 0.9,
-    //   x: 40,
-    //   ease: Expo.easeInOut
-    // }, '-=5');
-
   }, []);
 
   
   useEffect(() => {
-    const tl = new TimelineMax();
-    
-    tl.from('.ringOne', 4, {
-      delay: 0.4,
+    gsap.timeline('.ringOne', 4, {
+      delay: 0.6,
       opacity: 0,
-      y: 40,
-      ease: ExpoScaleEase.easeInOut
-    }, '-=5').to('.ringOne ring', 4, {
-      delay: 0.9,
-      x: 40,
-      ease: ExpoScaleEase.easeInOut
-    }, '-=5').to('.ringTwo ring', 4, {
-      delay: 0.9,
-      x: 40,
+      xPercent: -50,
+      yPercent: -50,
+      transformOrigin:'50% 50%',
       ease: ExpoScaleEase.easeInOut
     }, '-=5');
- 
-  }, [])
+
+    gsap.to('.ringOne', 4, {
+      delay: 0.6,
+      x: 40,
+      motionPath:{
+        path: 'M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106',
+        align: '#path',
+        autoRotate: true,
+        ease: ExpoScaleEase.easeInOut
+      }
+    }, '-=5');
+
+    gsap.to('.ringTwo', 4, {
+      delay: 0.9,
+      motionPath:{
+        path: 'M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106',
+        align: '#path',
+        autoRotate: true,
+        ease: ExpoScaleEase.easeInOut
+      }
+    }, '-=5');
+  }, []);
 
     return <>
       <section styles={styles}>
@@ -199,6 +194,10 @@ export default function Loader() {
             </h1>
 
           <p id="tagline" className="p1" ref={p1}>
+            Just sit tight! More to come very soon!
+            <br />
+            Some say, the sky's the limit. I look around and say, what sky? 
+            <br />
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam dignissimos tenetur similique magni adipisci perferendis totam tempore laborum sint beatae modi necessitatibus cumque debitis aut, velit odio dolorum, dolorem aspernatur?
           </p>
 
@@ -210,14 +209,13 @@ export default function Loader() {
 
           <div className="buttons">
             <button id="one" ref={one}>LEARN MORE</button>
-            <button id="two" ref={two}>BUY NOW</button>
+            <button id="two" ref={two}>CURIOUS MINDS INQUIRE HERE</button>
           </div>
         </div>
 
-          <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
+        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
               
-          <div className="copyright" ref={copyright}>2020 by Annalise Murphy. All rights reserved.
-          </div>
+        <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
               
         <div className="media" ref={mediaUlLi}>
           <ul>
@@ -230,6 +228,7 @@ export default function Loader() {
         </div>
 
         </div>
+        <script src="/script/gsap.min.js"></script>
         <script src="./script.js"></script>
       </section>
     </>
