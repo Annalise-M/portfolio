@@ -12,12 +12,6 @@ export default class Headers extends React.Component {
           {/* google fonts */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" />
 
-          {/* ion-icons
-          <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js" type="module" /> */}
-
-          {/* nomodule ion-icons */}
-          {/* <script src="http://localhost:3000/static/js/ionicons/ionicons.js"  nomodule="text/javascript" /> */}
-
           {/* gsap */}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js" type="text/javascript" />
 

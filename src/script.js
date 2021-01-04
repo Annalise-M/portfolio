@@ -1,9 +1,9 @@
 import gsap, { 
   TweenMax,
-  Power3,
-  // TimelineMax 
+  Power3
 } from 'gsap/gsap-core';
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import ReactAnime from 'react-animejs';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ExpoScaleEase } from 'gsap/EasePack';
 import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
@@ -23,7 +23,13 @@ gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
 
 export default function Loader() {
+  
+  // Anime.js effect refs
+  const Anime = ReactAnime();
+  const ml7 = React.forwardRef();
+  const letters = React.forwardRef();
 
+  // gsap effect refs
   const loadingScreen = React.forwardRef();
   const logo = React.forwardRef();
   const contact = React.forwardRef();
@@ -39,6 +45,7 @@ export default function Loader() {
   const ringOne = React.forwardRef();
   const ringTwo = React.forwardRef();
 
+  // gsap effects
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
       delay: 6.6,
@@ -124,7 +131,7 @@ export default function Loader() {
     });
   }, []);
 
-  
+  // gsap timeline effect
   useEffect(() => {
     gsap.timeline('.ringOne', 4, {
       delay: 0.6,
@@ -157,8 +164,33 @@ export default function Loader() {
     }, '-=5');
   }, []);
 
+    // const textContent = document.querySelector('.ml7 .letters');
+    // const textWrapper = textContent;
+    //   textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span className='letter'>$&</span>");
+    
+    //   console.log(textContent, 'ohhhhhhhhhhiiiiiiiiyyyyyyyyyyyaaaaaaaaaaaaaaa');
+
+      // UseEffect here...
+
+    useEffect(() => {
+      Anime.timeline({ loop: false })
+        .add({
+          targets: '.ml7 .letters',
+          translateY: ["1.1em", 0],
+          translateX: ["0.55em", 0], 
+          translateZ: 0,
+          rotateZ: [180, 0],
+          duration: 750,
+          easing: 'easeOutExpo',
+          delay: function(el, i) {
+            return 9000 + 50 * i;
+          }
+        });
+
+    });
+
     return <>
-      <section styles={styles}>
+      <section styles={styles}d>
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>
             <div className="loader">
@@ -185,9 +217,9 @@ export default function Loader() {
             <div className="header">
 
           {/* NOTE: Change h1 classNaming convention */}
-            <h1 className="ml7" id="title">
+            <h1 className="ml7" id="title" ref={ml7}>
               <span className="text-wrapper">
-                <span className="letters">
+                <span className="letters" ref={letters}>
                   Annalise Murphy
                 </span>
               </span>
@@ -213,7 +245,7 @@ export default function Loader() {
           </div>
         </div>
 
-        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
+        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.xx</div>
               
         <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
               
