@@ -16,7 +16,8 @@ export default class Headers extends React.Component {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js" type="text/javascript" />
 
           {/* Anime.js */}
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" type="text/javascript" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+          {/* <script src="anime.min.js"></script> */}
 
           {/* JQuery */}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript" />
