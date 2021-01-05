@@ -1,9 +1,8 @@
 import gsap, { 
   TweenMax,
-  Power3,
-  // TimelineMax 
+  Power3
 } from 'gsap/gsap-core';
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ExpoScaleEase } from 'gsap/EasePack';
 import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
@@ -16,29 +15,40 @@ import {
   IoIosGitCompare
 } from "react-icons/io";
 import originalZen from './images/originalZen.png';
-import{ styles }from './App.scss';
+import { styles } from './App.scss';
+import anime from 'animejs/lib/anime.es.js';
+
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
 
+
 export default function Loader() {
+  
+  // Anime.js effects & refs
+  // const animeRef = React.forwardRef();
+  const ml7 = React.createRef();
+  const letters = React.createRef();
+  const textWrapper = React.createRef();
 
-  const loadingScreen = React.forwardRef();
-  const logo = React.forwardRef();
-  const contact = React.forwardRef();
-  const options = React.forwardRef();
-  const bottomText = React.forwardRef();
-  const copyright = React.forwardRef();
-  const mediaUlLi = React.forwardRef();
-  const menu = React.forwardRef();
-  const p1 = React.forwardRef();
-  const p2 = React.forwardRef();
-  const one = React.forwardRef();
-  const two = React.forwardRef();
-  const ringOne = React.forwardRef();
-  const ringTwo = React.forwardRef();
+  // gsap refs
+  const loadingScreen = React.createRef();
+  const logo = React.createRef();
+  const contact = React.createRef();
+  const options = React.createRef();
+  const bottomText = React.createRef();
+  const copyright = React.createRef();
+  const mediaUlLi = React.createRef();
+  const menu = React.createRef();
+  const p1 = React.createRef();
+  const p2 = React.createRef();
+  const one = React.createRef();
+  const two = React.createRef();
+  const ringOne = React.createRef();
+  const ringTwo = React.createRef();
 
+  // gsap effects
   useEffect(() => {
     TweenMax.to('.loading-screen', 4, {
       delay: 6.6,
@@ -124,7 +134,7 @@ export default function Loader() {
     });
   }, []);
 
-  
+  // gsap timeline effect
   useEffect(() => {
     gsap.timeline('.ringOne', 4, {
       delay: 0.6,
@@ -156,6 +166,22 @@ export default function Loader() {
       }
     }, '-=5');
   }, []);
+  
+  useEffect(() => {
+    anime.timeline( 5, { loop: false })
+      .add({
+        targets: '.ml7 .letters',
+        translateY: ["1.1em", 0],
+        translateX: ["0.55em", 0], 
+        translateZ: 0,
+        rotateZ: [180, 0],
+        duration: 750,
+        easing: 'easeOutExpo',
+        delay: function(el, i) {
+          return 9000 + 50 * i;
+          }
+      });
+  })
 
     return <>
       <section styles={styles}>
@@ -183,11 +209,15 @@ export default function Loader() {
             </div>
 
             <div className="header">
-
-          {/* NOTE: Change h1 classNaming convention */}
-            <h1 className="ml7" id="title">
-              <span className="text-wrapper">
-                <span className="letters">
+          
+            <script>
+              const textWrapper = document.querySelector('.ml7 .letters');
+              textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span className='letter'>$&</span>");
+            </script>
+             
+            <h1 className="ml7" id="title" ref={ml7}>
+              <span className="text-wrapper" ref={textWrapper}>
+                <span className="letters" ref={letters}>
                   Annalise Murphy
                 </span>
               </span>
@@ -213,7 +243,7 @@ export default function Loader() {
           </div>
         </div>
 
-        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.??</div>
+        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.xx</div>
               
         <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
               
@@ -229,6 +259,7 @@ export default function Loader() {
 
         </div>
         <script src="/script/gsap.min.js"></script>
+        <script src="anime.min.js"></script>
         <script src="./script.js"></script>
       </section>
     </>
