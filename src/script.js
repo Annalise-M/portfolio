@@ -249,11 +249,21 @@ export default function Loader() {
               
         <div className="media" ref={mediaUlLi}>
           <ul>
-            <li><IoLogoFacebook className="logo-facebook" /></li>
-            <li><IoLogoInstagram className="logo-instagram" /></li>
-            <li><IoLogoTwitter className="logo-twitter" /></li>
+            <li>
+              <a href="">
+                <IoLogoFacebook className="logo-facebook" />
+              </a>
+            </li>
+            <li>
+              <a href=""><IoLogoInstagram className="logo-instagram" /></a>
+            </li>
+            <li>
+              <a href="">
+              <IoLogoTwitter className="logo-twitter" />
+              </a>
+              </li>
             {/* change to git hub className */}
-            <li><IoLogoOctocat className="logo-youtube" /></li>
+            <li><a href=""><IoLogoOctocat className="logo-youtube" /> </a></li>
           </ul>
         </div>
 

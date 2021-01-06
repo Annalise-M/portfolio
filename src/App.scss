@@ -153,6 +153,7 @@ button {
 }
 
 .bottom-text {
+  transform: rotate(-90 deg);
   position: absolute;
   z-index: 1;
   color: grey;
