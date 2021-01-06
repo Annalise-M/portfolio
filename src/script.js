@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 import { 
   IoIosOptions,
-  IoLogoFacebook,
+  IoLogoLinkedin,
   IoLogoInstagram,
   IoLogoTwitter,
   IoLogoOctocat,
@@ -238,32 +238,31 @@ export default function Loader() {
           </p>
 
           <div className="buttons">
-            <button id="one" ref={one}>LEARN MORE</button>
+            <button id="one" ref={one}>PROJECTS</button>
             <button id="two" ref={two}>CURIOUS MINDS INQUIRE HERE</button>
           </div>
         </div>
 
-        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.00.xx</div>
+        <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.xx.xx</div>
               
         <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
               
         <div className="media" ref={mediaUlLi}>
           <ul>
+            <li><a href="https://github.com/Annalise-M"><IoLogoOctocat className="logo-github" /> </a></li>
             <li>
-              <a href="">
-                <IoLogoFacebook className="logo-facebook" />
+              <a href="www.placecage.com">
+                <IoLogoLinkedin className="logo-linkedin" />
               </a>
             </li>
             <li>
-              <a href=""><IoLogoInstagram className="logo-instagram" /></a>
+              <a href="https://www.instagram.com/bbdragon88/"><IoLogoInstagram className="logo-instagram" /></a>
             </li>
             <li>
-              <a href="">
+              <a href="www.placecage.com">
               <IoLogoTwitter className="logo-twitter" />
               </a>
-              </li>
-            {/* change to git hub className */}
-            <li><a href=""><IoLogoOctocat className="logo-youtube" /> </a></li>
+            </li>
           </ul>
         </div>
 
