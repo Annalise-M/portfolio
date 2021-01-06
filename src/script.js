@@ -10,7 +10,6 @@ import {
   IoIosOptions,
   IoLogoLinkedin,
   IoLogoInstagram,
-  IoLogoTwitter,
   IoLogoOctocat,
   IoIosGitCompare
 } from "react-icons/io";
@@ -18,16 +17,13 @@ import originalZen from './images/originalZen.png';
 import { styles } from './App.scss';
 import anime from 'animejs/lib/anime.es.js';
 
-
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
 
-
 export default function Loader() {
   
   // Anime.js effects & refs
-  // const animeRef = React.forwardRef();
   const ml7 = React.createRef();
   const letters = React.createRef();
   const textWrapper = React.createRef();
@@ -167,6 +163,7 @@ export default function Loader() {
     }, '-=5');
   }, []);
   
+  // anime.js timeline effect
   useEffect(() => {
     anime.timeline( 5, { loop: false })
       .add({
@@ -197,10 +194,10 @@ export default function Loader() {
               <img src={originalZen} alt="" />
             </div>
 
-              <div className="logo" ref={logo}>
-                <IoIosGitCompare className="git-compare" />
-                  DesignerDev
-              </div>
+            <div className="logo" ref={logo}>
+              <IoIosGitCompare className="git-compare" />
+                DesignerDev
+            </div>
 
             <div className="contact" ref={contact}>GET IN TOUCH</div>
               
@@ -234,7 +231,7 @@ export default function Loader() {
           <br />
 
           <p id="tagline" className="p2" ref={p2}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus animi corporis magnam illo aspernatur nesciunt rerum officiis enim neque unde, maiores fuga asperiores dolorem totam ea sunt quia consequuntur itaque.
+            Just sit tight! More to come very soon!
           </p>
 
           <div className="buttons">
@@ -249,18 +246,19 @@ export default function Loader() {
               
         <div className="media" ref={mediaUlLi}>
           <ul>
-            <li><a href="https://github.com/Annalise-M"><IoLogoOctocat className="logo-github" /> </a></li>
             <li>
-              <a href="www.placecage.com">
-                <IoLogoLinkedin className="logo-linkedin" />
+              <a href="https://github.com/Annalise-M">
+                <IoLogoOctocat className="logo-github" />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/bbdragon88/"><IoLogoInstagram className="logo-instagram" /></a>
+              <a href="https://www.instagram.com/bbdragon88/">
+                <IoLogoInstagram className="logo-instagram" />
+              </a>
             </li>
             <li>
-              <a href="www.placecage.com">
-              <IoLogoTwitter className="logo-twitter" />
+              <a href="https://www.linkedin.com/in/annalise-murphy/">
+                <IoLogoLinkedin className="logo-linkedin" />
               </a>
             </li>
           </ul>
