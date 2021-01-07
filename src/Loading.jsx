@@ -1,5 +1,5 @@
 import React from 'react';
-import Headers from './helmet.jsx';
+import Headers from './Helmet';
 import originalZen from './images/originalZen.png';
 import './App.scss';
 
@@ -65,10 +65,10 @@ export default function Loading() {
 
       <div className="media">
         <ul>
-          <li><ion-icon className="logo-linkedin"></ion-icon></li>
+          <li><ion-icon className="logo-facebook"></ion-icon></li>
           <li><ion-icon className="logo-instagram"></ion-icon></li>
           <li><ion-icon className="logo-twitter"></ion-icon></li>
-          <li><ion-icon className="logo-github"></ion-icon></li>
+          <li><ion-icon className="logo-youtube"></ion-icon></li>
         </ul>
       </div>
 

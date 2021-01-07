@@ -23,9 +23,10 @@ export default class Headers extends React.Component {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript" />
           
           <title>Annalise Murphy</title>
+
           <script src="/script.js" />
-          
+
         </Helmet>
     )
   }
-};
+}
