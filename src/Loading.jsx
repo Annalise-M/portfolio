@@ -1,5 +1,5 @@
 import React from 'react';
-import Headers from './Helmet';
+import Headers from './helmet.jsx';
 import originalZen from './images/originalZen.png';
 import './App.scss';
 
