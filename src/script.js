@@ -163,6 +163,7 @@ export default function Landing() {
     }, '-=5');
   }, []);
   
+
   // anime.js timeline effect
   useEffect(() => {
     anime.timeline( 5, { loop: false })
@@ -178,8 +179,7 @@ export default function Landing() {
           return 9000 + 50 * i;
           }
       });
-  })
-
+  });
 
     return <>
       <section styles={styles}>
@@ -223,8 +223,6 @@ export default function Landing() {
 
           <p id="tagline" className="p1" ref={p1}>
             Just sit tight! More to come very soon!
-            <br />
-            Some say, the sky's the limit. I look around and say, what sky? 
             <br />
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam dignissimos tenetur similique magni adipisci perferendis totam tempore laborum sint beatae modi necessitatibus cumque debitis aut, velit odio dolorum, dolorem aspernatur?
           </p>
