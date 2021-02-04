@@ -21,7 +21,7 @@ gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
 
-export default function Loader() {
+export default function Landing() {
   
   // Anime.js effects & refs
   const ml7 = React.createRef();
@@ -172,13 +172,14 @@ export default function Loader() {
         translateX: ["0.55em", 0], 
         translateZ: 0,
         rotateZ: [180, 0],
-        duration: 750,
+        duration: 1800,
         easing: 'easeOutExpo',
         delay: function(el, i) {
           return 9000 + 50 * i;
           }
       });
   })
+
 
     return <>
       <section styles={styles}>

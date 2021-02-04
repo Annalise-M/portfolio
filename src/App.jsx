@@ -1,10 +1,10 @@
 import './App.scss';
-import Loader from './script';
+import Landing from './script';
 
 function App() {
   return (
     <>
-      <Loader />
+      <Landing />
     </>
   );
 }
