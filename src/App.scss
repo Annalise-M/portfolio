@@ -103,13 +103,22 @@ h1 {
 }
 
 p {
-  color: rgb(184, 184, 184);
   font-family: 'Linlegrey';
-  font-weight: 200 !important;
+  font-weight: 788 !important;
   font-size: 30px !important;
   line-height: 28px;
   margin-top: 0;
   margin-bottom: 0;
+  background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  animation: p 33s ease infinite;
+    @keyframes p { 
+        0%{background-position:0% 50%}
+        50%{background-position:100% 25%}
+        100%{background-position:0% 50%}
+    }
 }
 
 .buttons {
