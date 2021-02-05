@@ -22,7 +22,6 @@ gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
 
 export default function Landing() {
-  
   // Anime.js effects & refs
   const ml7 = React.createRef();
   const letters = React.createRef();
@@ -163,6 +162,7 @@ export default function Landing() {
     }, '-=5');
   }, []);
   
+
   // anime.js timeline effect
   useEffect(() => {
     anime.timeline( 5, { loop: false })
@@ -178,8 +178,7 @@ export default function Landing() {
           return 9000 + 50 * i;
           }
       });
-  })
-
+  });
 
     return <>
       <section styles={styles}>
@@ -222,17 +221,15 @@ export default function Landing() {
             </h1>
 
           <p id="tagline" className="p1" ref={p1}>
-            Just sit tight! More to come very soon!
+            Full Stack Software Engineer
             <br />
-            Some say, the sky's the limit. I look around and say, what sky? 
-            <br />
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam dignissimos tenetur similique magni adipisci perferendis totam tempore laborum sint beatae modi necessitatibus cumque debitis aut, velit odio dolorum, dolorem aspernatur?
+            A TDD focused full stack software engineer with a passion for problem solving and pattern mapping. I have experience with many different modern web technologies including React, Node.js &#38; PostgreSQL. I love being apart of a goal oriented team where my composition skills and attention to detail are valued. I'm an idea's person, active listener and clear communicator with superb dedication to constantly improving my attention to detail and the world through code.  
           </p>
 
           <br />
 
           <p id="tagline" className="p2" ref={p2}>
-            Just sit tight! More to come very soon!
+            Have a project? Shooting for the stars and needing some out of this world designs? Click below you curious cat! 
           </p>
 
           <div className="buttons">
