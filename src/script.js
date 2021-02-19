@@ -16,6 +16,7 @@ import {
 import originalZen from './images/originalZen.png';
 import { styles } from './App.scss';
 import anime from 'animejs/lib/anime.es.js';
+import Projects from './projects.jsx';
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
@@ -263,9 +264,16 @@ export default function Landing() {
         </div>
 
         </div>
+        
+        <Projects />
+
         <script src="/script/gsap.min.js"></script>
         <script src="anime.min.js"></script>
         <script src="./script.js"></script>
+        
+
       </section>
+      
+     
     </>
   };
