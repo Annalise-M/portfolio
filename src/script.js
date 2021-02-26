@@ -200,12 +200,10 @@ export default function Landing() {
                 DesignerDev
             </div>
 
-            <div className="contact" ref={contact}>GET IN TOUCH</div>
-              
+            <div className="contact" ref={contact}>GET IN TOUCH</div>  
             <div className="menu" ref={menu}>
               <IoIosOptions className="options" ref={options} size={33} />
             </div>
-
             <div className="header">
           
             <script>
@@ -237,12 +235,12 @@ export default function Landing() {
             <button id="one" ref={one}>PROJECTS</button>
             <button id="two" ref={two}>CURIOUS MINDS INQUIRE HERE</button>
           </div>
+          <Projects />
+
         </div>
 
         <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.xx.xx</div>
-              
         <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
-              
         <div className="media" ref={mediaUlLi}>
           <ul>
             <li>
@@ -262,18 +260,12 @@ export default function Landing() {
             </li>
           </ul>
         </div>
-
-        </div>
-        
-        <Projects />
+      </div>
 
         <script src="/script/gsap.min.js"></script>
         <script src="anime.min.js"></script>
         <script src="./script.js"></script>
-        
-
       </section>
-      
-     
-    </>
+
+  </>
   };

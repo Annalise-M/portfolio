@@ -3,13 +3,14 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { styles } from './App.scss';
 
 export default function Projects() {
-    let parallax;
+    const parallax = React.createRef();
+
     return (
         <div>
             <h1>
                 <section styles={styles}>
-                    <Parallax pages={2} ref={ref => parallax = ref}>
-                        <ParallaxLayer offset={0.3} speed={0}>
+                    <Parallax pages={2} ref={parallax}>
+                        <ParallaxLayer offset={0.1} speed={0}>
                             <span>Scroll down bitch!</span>
                         </ParallaxLayer>
                         <ParallaxLayer offset={1.2} speed={0}>
@@ -27,3 +28,4 @@ export default function Projects() {
         </div>
     );
 }
+
