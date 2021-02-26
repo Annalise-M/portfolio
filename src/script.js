@@ -16,7 +16,9 @@ import {
 import originalZen from './images/originalZen.png';
 import { styles } from './App.scss';
 import anime from 'animejs/lib/anime.es.js';
+import { Parallax } from 'react-spring/renderprops-addons';
 import Projects from './projects.jsx';
+
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
@@ -27,6 +29,8 @@ export default function Landing() {
   const ml7 = React.createRef();
   const letters = React.createRef();
   const textWrapper = React.createRef();
+
+  const parallax = React.createRef();
 
   // gsap refs
   const loadingScreen = React.createRef();
@@ -182,6 +186,7 @@ export default function Landing() {
   });
 
     return <>
+     <Parallax pages={1.4} ref={parallax}>
       <section styles={styles}>
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>
@@ -266,6 +271,6 @@ export default function Landing() {
         <script src="anime.min.js"></script>
         <script src="./script.js"></script>
       </section>
-
+    </Parallax>
   </>
   };
