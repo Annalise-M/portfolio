@@ -186,7 +186,7 @@ export default function Landing() {
   });
 
     return <>
-     <Parallax pages={1.4} ref={parallax}>
+     <Parallax pages={1.5} ref={parallax}>
       <section styles={styles}>
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>

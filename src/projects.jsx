@@ -1,30 +1,47 @@
 import React from 'react';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
-import { styles } from './App.scss';
+
+
 
 export default function Projects() {
-    // const parallax = React.createRef();
-
     return (
         <div className="projects">
-            <h1>
-                {/* <section styles={styles}> */}
-                    {/* <Parallax pages={3} ref={parallax}> */}
+            <main>
+                <h1>        
+                    <section>
                         <ParallaxLayer offset={0.1} speed={0}>
-                            <section>Scroll down bitch!</section>
+                            <div className="">PROJECT 1</div>
+                            <div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nisi officia veniam vel facere quae voluptatem natus beatae quod laudantium? Ratione quam sapiente dolorem explicabo ipsum fuga delectus soluta a.
+                            </div>
                         </ParallaxLayer>
+                    </section>
+                    <section>
                         <ParallaxLayer offset={1.2} speed={0}>
-                            <span>Scroll down further bitch!</span>
+                            <div>PROJECT 2</div>
+                            <div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nisi officia veniam vel facere quae voluptatem natus beatae quod laudantium? Ratione quam sapiente dolorem explicabo ipsum fuga delectus soluta a.
+                            </div>
                         </ParallaxLayer>
+                    </section>
+                    <section>
                         <ParallaxLayer offset={0.9} speed={3}>
-                            <span>Fast one bitch!</span>
+                            <div>PROJECT 3</div>
+                            <div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nisi officia veniam vel facere quae voluptatem natus beatae quod laudantium? Ratione quam sapiente dolorem explicabo ipsum fuga delectus soluta a.
+                            </div>
                         </ParallaxLayer>
+                    </section>
+                    <section>
                         <ParallaxLayer offset={-0.2} speed={1.3}>
-                            <span>Go the other direction bitch!</span>
+                            <div>PROJECT 4</div>
+                            <div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, nisi officia veniam vel facere quae voluptatem natus beatae quod laudantium? Ratione quam sapiente dolorem explicabo ipsum fuga delectus soluta a.
+                            </div>
                         </ParallaxLayer>
-                    {/* </Parallax> */}
-                {/* </ section> */}
-            </h1>
+                    </section>
+                </h1>
+            </main>
         </div>
     );
 }
