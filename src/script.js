@@ -16,9 +16,6 @@ import {
 import originalZen from './images/originalZen.png';
 import { styles } from './App.scss';
 import anime from 'animejs/lib/anime.es.js';
-import { Parallax } from 'react-spring/renderprops-addons';
-import Projects from './projects.jsx';
-
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
@@ -29,8 +26,6 @@ export default function Landing() {
   const ml7 = React.createRef();
   const letters = React.createRef();
   const textWrapper = React.createRef();
-
-  const parallax = React.createRef();
 
   // gsap refs
   const loadingScreen = React.createRef();
@@ -186,7 +181,6 @@ export default function Landing() {
   });
 
     return <>
-     <Parallax pages={1.5} ref={parallax}>
       <section styles={styles}>
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>
@@ -240,37 +234,34 @@ export default function Landing() {
             <button id="one" ref={one}>PROJECTS</button>
             <button id="two" ref={two}>CURIOUS MINDS INQUIRE HERE</button>
           </div>
-          <Projects />
 
         </div>
 
         <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.xx.xx</div>
-        <div className="copyright" ref={copyright}>&#169; 2020 by Annalise Murphy. All rights reserved.</div>
+        <div className="copyright" ref={copyright}>&#169; 2021 by Annalise Murphy. All rights reserved.</div>
         <div className="media" ref={mediaUlLi}>
           <ul>
             <li>
-              <a href="https://github.com/Annalise-M">
+              <a href="https://github.com/Annalise-M" target="https://github.com/Annalise-M">
                 <IoLogoOctocat className="logo-github" />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/bbdragon88/">
+              <a href="https://www.instagram.com/bbdragon88/" target="https://www.instagram.com/bbdragon88/">
                 <IoLogoInstagram className="logo-instagram" />
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/annalise-murphy/">
+              <a href="https://www.linkedin.com/in/annalise-murphy/" target="https://www.linkedin.com/in/annalise-murphy/">
                 <IoLogoLinkedin className="logo-linkedin" />
               </a>
             </li>
           </ul>
         </div>
       </div>
-
         <script src="/script/gsap.min.js"></script>
         <script src="anime.min.js"></script>
         <script src="./script.js"></script>
       </section>
-    </Parallax>
   </>
   };
