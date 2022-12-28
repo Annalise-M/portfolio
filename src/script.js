@@ -238,7 +238,7 @@ export default function Landing() {
         </div>
 
         <div className="bottom-text" ref={bottomText}>Coding Goddess Version 01.xx.xx</div>
-        <div className="copyright" ref={copyright}>&#169; 2021 by Annalise Murphy. All rights reserved.</div>
+        <div className="copyright" ref={copyright}>&#169; 2022 by Annalise Murphy. All rights reserved.</div>
         <div className="media" ref={mediaUlLi}>
           <ul>
             <li>
