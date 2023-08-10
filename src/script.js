@@ -238,7 +238,7 @@ export default function Landing() {
 
             <p id="tagline" className="p1" ref={p1}>
               Full Stack Software Engineer
-              <br />A TDD focused full stack software engineer with a passion
+              <br />A full stack software engineer with a passion
               for problem solving and pattern mapping. I have experience with
               many different modern web technologies including React, Node.js
               &#38; PostgreSQL. I love being apart of a goal oriented team where
