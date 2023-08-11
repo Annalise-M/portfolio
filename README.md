@@ -42,7 +42,7 @@ _____
 
     => Parallax Scrolling 
         => potential use through 
-        React + Css || TimelineMax (GSAP)
+        React + Css || TimelineMax (GSAP) ** this method has been updated (please see dox for navigation on updated call: https://greensock.com/3-migration/)
             => figure out which method
 
     => Projects Section
