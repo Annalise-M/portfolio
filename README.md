@@ -1,28 +1,32 @@
-# Portfolio Project 
+# Portfolio Project
+
     Version 1.0.0
 
-## Current Stack: 
+## Current Stack
+
     React
     JavaScript
     GSAP
     HTML
     Scss
 
+## Libraries & Installations
 
-## Libraries & Installations :
     npx create-react-app
     npm install node-sass@4.14.1 
         (version specific due to originator's current computing power and limitations)
     npm install gsap
     npm i react-helmet
     npm install react react-dom
+    npm rebuild node-sass
 
     gsap.registerPlugin(MotionPathPlugin);
     gsap.registerPlugin(ExpoScaleEase);
     gsap.registerPlugin(CSSPlugin);
 _____
 
-###    Intended features:
+### Intended features
+
     => Zen Loading / Welcoming screen
         { VIBE: zen , fine , gold, muted , neutral , smokey , clean }
 
@@ -38,19 +42,20 @@ _____
 
     => Parallax Scrolling 
         => potential use through 
-        React + Css || TimelineMax (GSAP)
+        React + Css || TimelineMax (GSAP) ** this method has been updated (please see dox for navigation on updated call: https://greensock.com/3-migration/)
             => figure out which method
 
     => Projects Section
         { Project1, Project2, Project3, etc. } 
             => figure out presentation style, placement, flow...
 
-#### STRETCH_GOALS ####
+### STRETCH_GOALS
+
     => Pixi.js
         { Smoke effect upon Loading/Welcome page }
     => ref. link(s) below:
 
-<a href="https://designmodo.com/smoke-transitions/">Design Modo: Smoke Transitions</a>
+    <a href="https://designmodo.com/smoke-transitions/"> Design Modo: Smoke Transitions </a>
 
     || 
 
