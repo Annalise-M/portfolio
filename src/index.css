@@ -1,13 +1,24 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+    @font-face {
+      font-family: "VintageRough";
+      src: 
+        local("VintageRough"),
+        url("https://www.freefonts.io/downloads/vintage-rough/") format("opentype")
+    }
+    /* font-family: "Trickster";
+    src:
+      local("Trickster"),
+      url("trickster-COLRv1.otf") format("opentype") tech(color-COLRv1),
+      url("trickster-outline.otf") format("opentype"), */
 }

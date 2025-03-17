@@ -1,4 +1,4 @@
-import gsap, { TweenMax, Power3 } from "gsap/gsap-core";
+import gsap, { Power3 } from "gsap/gsap-core";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ExpoScaleEase } from "gsap/EasePack";
 import React, { useEffect } from "react";
@@ -11,12 +11,13 @@ import {
   IoIosGitCompare,
 } from "react-icons/io";
 import originalZen from "./images/originalZen.png";
-import { styles } from "./App.scss";
+import styles from './App.scss';
 import anime from "animejs/lib/anime.es.js";
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
+gsap.defaults({overwrite: "auto"});
 
 export default function Landing() {
   // Anime.js effects & refs
@@ -42,48 +43,48 @@ export default function Landing() {
 
   // gsap effects
   useEffect(() => {
-    TweenMax.to(".loading-screen", 4, {
+    gsap(".loading-screen", 4, {
       delay: 6.6,
       top: "-110%",
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".logo", 3, {
+    gsap(".logo", 3, {
       delay: 8.4,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".contact", 3, {
+    gsap(".contact", 3, {
       delay: 8.5,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".options", 3, {
+    gsap(".options", 3, {
       delay: 8.5,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".bottom-text", 3, {
+    gsap(".bottom-text", 3, {
       delay: 8.7,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".copyright", 3, {
+    gsap(".copyright", 3, {
       delay: 8.9,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.staggerFrom(
+    gsap.staggerFrom(
       ".media ul li",
       2,
       {
@@ -95,35 +96,35 @@ export default function Landing() {
       0.1
     );
 
-    TweenMax.from(".menu", 3, {
+    gsap.from(".menu", 3, {
       delay: 8.8,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".p1", 3, {
+    gsap.from(".p1", 3, {
       delay: 9,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from(".p2", 3, {
+    gsap.from(".p2", 3, {
       delay: 9.2,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from("#one", 3, {
+    gsap.from("#one", 3, {
       delay: 9.4,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    TweenMax.from("#two", 3, {
+    gsap.from("#two", 3, {
       delay: 9.7,
       opacity: 0,
       y: 20,
@@ -236,17 +237,14 @@ export default function Landing() {
               </span>
             </h1>
 
-            <p id="tagline" className="p1" ref={p1}>
+            <section id="tagline" className="p1" ref={p1}>
               Full Stack Software Engineer
-              <br />A full stack software engineer with a passion
-              for problem solving and pattern mapping. I have experience with
-              many different modern web technologies including React, Node.js
-              &#38; PostgreSQL. I love being apart of a goal oriented team where
-              my composition skills and attention to detail are valued. I'm an
-              idea's person, active listener and clear communicator with superb
-              dedication to constantly improving my attention to detail and the
-              world through code.
-            </p>
+              <br /> As an adaptive and flexible full-stack software engineer, I have a passion for teamwork, problem-solving, and pattern mapping. I have experience with many different modern web technologies including React.js, Typescript, Node.js &#38; PostgreSQL, and am always exploring new ways to improve the world through code.
+              <br />
+              In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
+              <br />
+              Currently inspired by the latest in 3D animation(s) through programming (GSAP & Three.js).
+            </section>
 
             <br />
 
@@ -307,3 +305,4 @@ export default function Landing() {
     </>
   );
 }
+

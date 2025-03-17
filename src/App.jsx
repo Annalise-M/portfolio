@@ -1,4 +1,4 @@
-import './App.scss';
+// import './App.scss';
 // import { Projects } from './projects';
 import Landing from './script';
 

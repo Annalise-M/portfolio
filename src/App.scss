@@ -13,6 +13,7 @@ body {
 
 img {
   width: 100%;
+  height: max-content;
 }
 
 .logo {
@@ -102,14 +103,15 @@ h1 {
   width: 640px;
 }
 
-p {
-  font-family: 'Linlegrey';
-  font-weight: 788 !important;
-  font-size: 24px !important;
+section {
+  font-family: 'Poppins';
+  font-weight: 488 !important;
+  font-size: 18px !important;
   color: #fff;
   line-height: 28px;
   margin-top: 0;
   margin-bottom: 0;
+  
 }
 
 // RAINBOW TOGGLE
