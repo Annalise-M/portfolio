@@ -11,7 +11,7 @@ import {
   IoIosGitCompare,
 } from "react-icons/io";
 import originalZen from "./images/originalZen.png";
-import styles from './App.scss';
+import styles from "./App.scss";
 import anime from "animejs/lib/anime.es.js";
 
 gsap.registerPlugin(MotionPathPlugin);
@@ -21,70 +21,70 @@ gsap.defaults({overwrite: "auto"});
 
 export default function Landing() {
   // Anime.js effects & refs
-  const ml7 = React.createRef();
-  const letters = React.createRef();
-  const textWrapper = React.createRef();
+  const ml7 = React.useRef();
+  const letters = React.useRef();
+  const textWrapper = React.useRef();
 
   // gsap refs
-  const loadingScreen = React.createRef();
-  const logo = React.createRef();
-  const contact = React.createRef();
-  const options = React.createRef();
-  const bottomText = React.createRef();
-  const copyright = React.createRef();
-  const mediaUlLi = React.createRef();
-  const menu = React.createRef();
-  const p1 = React.createRef();
-  const p2 = React.createRef();
-  const one = React.createRef();
-  const two = React.createRef();
-  const ringOne = React.createRef();
-  const ringTwo = React.createRef();
+  const loadingScreen = React.useRef();
+  const logo = React.useRef();
+  const contact = React.useRef();
+  const options = React.useRef();
+  const bottomText = React.useRef();
+  const copyright = React.useRef();
+  const mediaUlLi = React.useRef();
+  const menu = React.useRef();
+  const p1 = React.useRef();
+  const p2 = React.useRef();
+  const one = React.useRef();
+  const two = React.useRef();
+  const ringOne = React.useRef();
+  const ringTwo = React.useRef();
 
   // gsap effects
   useEffect(() => {
-    gsap(".loading-screen", 4, {
+    gsap.to(".loading-screen", 4, {
       delay: 6.6,
       top: "-110%",
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap(".logo", 3, {
+    gsap.from(".logo", 3, {
       delay: 8.4,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap(".contact", 3, {
+    gsap.from(".contact", 3, {
       delay: 8.5,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap(".options", 3, {
+    gsap.from(".options", 3, {
       delay: 8.5,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap(".bottom-text", 3, {
+    gsap.from(".bottom-text", 3, {
       delay: 8.7,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap(".copyright", 3, {
+    gsap.from(".copyright", 3, {
       delay: 8.9,
       opacity: 0,
       y: 20,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap.staggerFrom(
+    gsap.from(
       ".media ul li",
       2,
       {
@@ -305,4 +305,3 @@ export default function Landing() {
     </>
   );
 }
-
