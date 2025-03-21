@@ -23,7 +23,7 @@ export default function Landing() {
   // Anime.js effects & refs
   const ml7 = React.useRef();
   const letters = React.useRef();
-  const textWrapper = React.useRef();
+  // const textWrapper = React.useRef();
 
   // gsap refs
   const loadingScreen = React.useRef();
@@ -213,7 +213,7 @@ export default function Landing() {
 
           <div className="logo" ref={logo}>
             <IoIosGitCompare className="git-compare" />
-            DesignerDev
+            Annalise Murphy
           </div>
 
           <div className="contact" ref={contact}>
@@ -230,11 +230,11 @@ export default function Landing() {
             </script>
 
             <h1 className="ml7" id="title" ref={ml7}>
-              <span className="text-wrapper" ref={textWrapper}>
+              {/* <span className="text-wrapper" ref={textWrapper}> */}
                 <span className="letters" ref={letters}>
-                  Annalise Murphy
+                  {/* Welcome */}
                 </span>
-              </span>
+              {/* </span> */}
             </h1>
 
             <section id="tagline" className="p1" ref={p1}>
@@ -267,7 +267,7 @@ export default function Landing() {
             Coding Goddess Version 01.xx.xx
           </div>
           <div className="copyright" ref={copyright}>
-            &#169; 2023 by Annalise Murphy. All rights reserved.
+            &#169; 2025 by Annalise Murphy. All rights reserved.
           </div>
           <div className="media" ref={mediaUlLi}>
             <ul>
