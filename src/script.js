@@ -8,7 +8,7 @@ import {
   IoLogoLinkedin,
   IoLogoInstagram,
   IoLogoOctocat,
-  IoIosGitCompare,
+  IoIosPlanet,
 } from "react-icons/io";
 import originalZen from "./images/originalZen.png";
 import styles from "./App.scss";
@@ -212,7 +212,7 @@ export default function Landing() {
           </div>
 
           <div className="logo" ref={logo}>
-            <IoIosGitCompare className="git-compare" />
+            <IoIosPlanet className="git-compare" />
             Annalise Murphy
           </div>
 
@@ -238,7 +238,7 @@ export default function Landing() {
             </h1>
 
             <section id="tagline" className="p1" ref={p1}>
-              Full Stack Software Engineer
+              Software Engineer
               <br /> As an adaptive and flexible full-stack software engineer, I have a passion for teamwork, problem-solving, and pattern mapping. I have experience with many different modern web technologies including React.js, Typescript, Node.js &#38; PostgreSQL, and am always exploring new ways to improve the world through code.
               <br />
               In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
