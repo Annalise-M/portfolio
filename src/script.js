@@ -17,15 +17,13 @@ import anime from "animejs/lib/anime.es.js";
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
-gsap.defaults({overwrite: "auto"});
+// gsap.defaults({overwrite: "auto"});
 
 export default function Landing() {
   // Anime.js effects & refs
+  // Refs
   const ml7 = React.useRef();
   const letters = React.useRef();
-  // const textWrapper = React.useRef();
-
-  // gsap refs
   const loadingScreen = React.useRef();
   const logo = React.useRef();
   const contact = React.useRef();
@@ -41,148 +39,116 @@ export default function Landing() {
   const ringOne = React.useRef();
   const ringTwo = React.useRef();
 
-  // gsap effects
+  // GSAP entrance animations
   useEffect(() => {
-    gsap.to(".loading-screen", 4, {
-      delay: 6.6,
-      top: "-110%",
-      ease: ExpoScaleEase.easeInOut,
-    });
+    const timeline = gsap.timeline();
 
-    gsap.from(".logo", 3, {
-      delay: 8.4,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".contact", 3, {
-      delay: 8.5,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".options", 3, {
-      delay: 8.5,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".bottom-text", 3, {
-      delay: 8.7,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".copyright", 3, {
-      delay: 8.9,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(
-      ".media ul li",
-      2,
-      {
-        delay: 8.7,
+    timeline
+      .to(loadingScreen.current, {
+        duration: 4,
+        delay: 6.6,
+        top: "-110%",
+        ease: ExpoScaleEase.easeInOut,
+      })
+      .from(logo.current, {
+        duration: 3,
+        delay: 1.8,
         opacity: 0,
         y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.2")
+      .from([contact.current, options.current], {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.8")
+      .from([bottomText.current, copyright.current], {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        stagger: 0.2,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.8")
+      .from(".media ul li", {
+        duration: 2,
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
         ease: Power3.easeInOut,
-      },
-      0.1
-    );
-
-    gsap.from(".menu", 3, {
-      delay: 8.8,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".p1", 3, {
-      delay: 9,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from(".p2", 3, {
-      delay: 9.2,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from("#one", 3, {
-      delay: 9.4,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
-
-    gsap.from("#two", 3, {
-      delay: 9.7,
-      opacity: 0,
-      y: 20,
-      ease: ExpoScaleEase.easeInOut,
-    });
+      }, "-=2.5")
+      .from(menu.current, {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.5")
+      .from(p1.current, {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.3")
+      .from(p2.current, {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=2.1")
+      .from(one.current, {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=1.9")
+      .from(two.current, {
+        duration: 3,
+        opacity: 0,
+        y: 20,
+        ease: ExpoScaleEase.easeInOut,
+      }, "-=1.6");
   }, []);
 
-  // gsap timeline effect
+  // GSAP ring animations
   useEffect(() => {
-    gsap.timeline(
-      ".ringOne",
-      4,
-      {
-        delay: 0.6,
-        opacity: 0,
-        xPercent: -50,
-        yPercent: -50,
-        transformOrigin: "50% 50%",
+    gsap.from(ringOne.current, {
+      duration: 4,
+      delay: 0.6,
+      opacity: 0,
+      xPercent: -50,
+      yPercent: -50,
+      transformOrigin: "50% 50%",
+      ease: ExpoScaleEase.easeInOut,
+    });
+
+    gsap.to(ringOne.current, {
+      duration: 4,
+      delay: 0.6,
+      x: 40,
+      motionPath: {
+        path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
+        align: "#path",
+        autoRotate: true,
         ease: ExpoScaleEase.easeInOut,
       },
-      "-=5"
-    );
+    });
 
-    gsap.to(
-      ".ringOne",
-      4,
-      {
-        delay: 0.6,
-        x: 40,
-        motionPath: {
-          path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
-          align: "#path",
-          autoRotate: true,
-          ease: ExpoScaleEase.easeInOut,
-        },
+    gsap.to(ringTwo.current, {
+      duration: 4,
+      delay: 0.9,
+      motionPath: {
+        path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
+        align: "#path",
+        autoRotate: true,
+        ease: ExpoScaleEase.easeInOut,
       },
-      "-=5"
-    );
-
-    gsap.to(
-      ".ringTwo",
-      4,
-      {
-        delay: 0.9,
-        motionPath: {
-          path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
-          align: "#path",
-          autoRotate: true,
-          ease: ExpoScaleEase.easeInOut,
-        },
-      },
-      "-=5"
-    );
+    });
   }, []);
 
-  // anime.js timeline effect
+  // Anime.js text animation
   useEffect(() => {
-    anime.timeline(5, { loop: false }).add({
+    anime.timeline({ loop: false }).add({
       targets: ".ml7 .letters",
       translateY: ["1.1em", 0],
       translateX: ["0.55em", 0],
@@ -190,11 +156,9 @@ export default function Landing() {
       rotateZ: [180, 0],
       duration: 1800,
       easing: "easeOutExpo",
-      delay: function (el, i) {
-        return 9000 + 50 * i;
-      },
+      delay: (el, i) => 9000 + 50 * i,
     });
-  });
+  }, []);
 
   return (
     <>
@@ -241,8 +205,8 @@ export default function Landing() {
               Software Engineer
               <br /> As an adaptive and flexible full-stack software engineer, I have a passion for teamwork, problem-solving, and pattern mapping. I have experience with many different modern web technologies including React.js, Typescript, Node.js &#38; PostgreSQL, and am always exploring new ways to improve the world through code.
               <br />
-              In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
-              <br />
+              {/* In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
+              <br /> */}
               Currently inspired by the latest in 3D animation(s) through programming (GSAP & Three.js).
             </section>
 
