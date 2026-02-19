@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 

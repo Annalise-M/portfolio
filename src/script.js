@@ -1,5 +1,6 @@
 import gsap, { Power3 } from "gsap/gsap-core";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExpoScaleEase } from "gsap/EasePack";
 import React, { useEffect } from "react";
 import { CSSPlugin } from "gsap/CSSPlugin";
@@ -10,24 +11,23 @@ import {
   IoLogoOctocat,
   IoIosPlanet,
 } from "react-icons/io";
+import Navigation from "./components/Navigation";
 import originalZen from "./images/originalZen.png";
 import styles from "./App.scss";
 import anime from "animejs/lib/anime.es.js";
 
 gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ExpoScaleEase);
 gsap.registerPlugin(CSSPlugin);
-// gsap.defaults({overwrite: "auto"});
 
 export default function Landing() {
-  // Anime.js effects & refs
   // Refs
   const ml7 = React.useRef();
   const letters = React.useRef();
   const loadingScreen = React.useRef();
   const logo = React.useRef();
   const contact = React.useRef();
-  const options = React.useRef();
   const bottomText = React.useRef();
   const copyright = React.useRef();
   const mediaUlLi = React.useRef();
@@ -38,6 +38,56 @@ export default function Landing() {
   const two = React.useRef();
   const ringOne = React.useRef();
   const ringTwo = React.useRef();
+  const headerRef = React.useRef();
+  const menuRef = React.useRef();
+
+  // Rings follow cursor everywhere with drag effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+
+      // Calculate position relative to viewport center
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const offsetX = clientX - centerX;
+      const offsetY = clientY - centerY;
+
+      if (ringOne.current) {
+        gsap.to(ringOne.current, {
+          x: offsetX,
+          y: offsetY,
+          rotation: offsetX * 0.02,
+          duration: 0.8,
+          ease: Power3.easeOut,
+          overwrite: 'auto'
+        });
+      }
+
+      if (ringTwo.current) {
+        gsap.to(ringTwo.current, {
+          x: offsetX,
+          y: offsetY,
+          rotation: -offsetX * 0.015,
+          duration: 1.2,
+          ease: Power3.easeOut,
+          overwrite: 'auto'
+        });
+      }
+
+      if (headerRef.current) {
+        gsap.to(headerRef.current, {
+          x: offsetX * 0.05,
+          y: offsetY * 0.05,
+          duration: 0.8,
+          ease: Power3.easeOut,
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   // GSAP entrance animations
   useEffect(() => {
@@ -45,104 +95,104 @@ export default function Landing() {
 
     timeline
       .to(loadingScreen.current, {
-        duration: 4,
-        delay: 6.6,
+        duration: 1.5,
+        delay: 3,
         top: "-110%",
         ease: ExpoScaleEase.easeInOut,
       })
       .from(logo.current, {
-        duration: 3,
-        delay: 1.8,
+        duration: 1.2,
         opacity: 0,
         y: 20,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=2.2")
-      .from([contact.current, options.current], {
-        duration: 3,
+      }, "-=0.8")
+      .from([contact.current, menuRef.current], {
+        duration: 1.2,
         opacity: 0,
         y: 20,
         stagger: 0.1,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=2.8")
+      }, "-=1.0")
       .from([bottomText.current, copyright.current], {
-        duration: 3,
+        duration: 1.2,
         opacity: 0,
         y: 20,
-        stagger: 0.2,
+        stagger: 0.1,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=2.8")
+      }, "-=1.0")
       .from(".media ul li", {
-        duration: 2,
+        duration: 1,
         opacity: 0,
         y: 20,
         stagger: 0.1,
         ease: Power3.easeInOut,
-      }, "-=2.5")
-      .from(menu.current, {
-        duration: 3,
-        opacity: 0,
-        y: 20,
-        ease: ExpoScaleEase.easeInOut,
-      }, "-=2.5")
+      }, "-=1.0")
       .from(p1.current, {
-        duration: 3,
+        duration: 1.2,
         opacity: 0,
         y: 20,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=2.3")
+      }, "-=0.9")
       .from(p2.current, {
-        duration: 3,
+        duration: 1.2,
         opacity: 0,
         y: 20,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=2.1")
+      }, "-=1.0")
       .from(one.current, {
-        duration: 3,
+        duration: 1.2,
         opacity: 0,
         y: 20,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=1.9")
+      }, "-=1.0")
       .from(two.current, {
-        duration: 3,
+        duration: 1.2,
         opacity: 0,
         y: 20,
         ease: ExpoScaleEase.easeInOut,
-      }, "-=1.6");
+      }, "-=1.0");
   }, []);
 
-  // GSAP ring animations
+  // GSAP ring entrance animations
   useEffect(() => {
+    // Fade in and scale up both rings from center
     gsap.from(ringOne.current, {
-      duration: 4,
-      delay: 0.6,
+      duration: 2,
+      delay: 0.5,
       opacity: 0,
-      xPercent: -50,
-      yPercent: -50,
-      transformOrigin: "50% 50%",
+      scale: 0.3,
+      rotation: -180,
       ease: ExpoScaleEase.easeInOut,
     });
 
+    gsap.from(ringTwo.current, {
+      duration: 3,
+      delay: 1.2,
+      opacity: 0,
+      scale: 0.5,
+      rotation: 180,
+      ease: ExpoScaleEase.easeInOut,
+    });
+
+    // Subtle idle floating animation
     gsap.to(ringOne.current, {
-      duration: 4,
-      delay: 0.6,
-      x: 40,
-      motionPath: {
-        path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
-        align: "#path",
-        autoRotate: true,
-        ease: ExpoScaleEase.easeInOut,
-      },
+      duration: 3,
+      y: "+=15",
+      rotation: "+=5",
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 4,
     });
 
     gsap.to(ringTwo.current, {
       duration: 4,
-      delay: 0.9,
-      motionPath: {
-        path: "M268.271,134.933 C267.855,90.032 -40.983,89.784 32.019,88.784 107.009,88.784 240.162,129.075 268.405,103.32 301.374,73.195 341.086,74.782 390.086,74.782 477.086,74.782 493.578,117.106 500.578,94.106",
-        align: "#path",
-        autoRotate: true,
-        ease: ExpoScaleEase.easeInOut,
-      },
+      y: "-=20",
+      rotation: "-=8",
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 4.5,
     });
   }, []);
 
@@ -154,15 +204,29 @@ export default function Landing() {
       translateX: ["0.55em", 0],
       translateZ: 0,
       rotateZ: [180, 0],
-      duration: 1800,
+      duration: 1500,
       easing: "easeOutExpo",
-      delay: (el, i) => 9000 + 50 * i,
+      delay: (el, i) => 4000 + 50 * i,
     });
   }, []);
 
+  // Scroll to projects
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Handle contact click
+  const handleContact = () => {
+    window.location.href = 'mailto:your-email@example.com';
+  };
+
   return (
     <>
-      <section styles={styles}>
+      <Navigation triggerRef={menuRef} />
+      <section className="landing-section" styles={styles} id="home">
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>
           <div className="loader">
@@ -180,13 +244,13 @@ export default function Landing() {
             Annalise Murphy
           </div>
 
-          <div className="contact" ref={contact}>
+          <div className="contact interactive" ref={contact} onClick={handleContact}>
             GET IN TOUCH
           </div>
-          <div className="menu" ref={menu}>
-            <IoIosOptions className="options" ref={options} size={33} />
+          <div className="menu interactive" ref={menuRef}>
+            <IoIosOptions className="options" size={33} />
           </div>
-          <div className="header">
+          <div className="header" ref={headerRef}>
             <script>
               const textWrapper = document.querySelector('.ml7 .letters');
               textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "
@@ -218,11 +282,11 @@ export default function Landing() {
             </p>
 
             <div className="buttons">
-              <button id="one" ref={one}>
-                PROJECTS
+              <button id="one" ref={one} className="interactive" onClick={scrollToProjects}>
+                <span>VIEW PROJECTS</span>
               </button>
-              <button id="two" ref={two}>
-                CURIOUS MINDS INQUIRE HERE
+              <button id="two" ref={two} className="interactive" onClick={handleContact}>
+                <span>GET IN TOUCH</span>
               </button>
             </div>
           </div>
@@ -238,7 +302,9 @@ export default function Landing() {
               <li>
                 <a
                   href="https://github.com/Annalise-M"
-                  target="https://github.com/Annalise-M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="interactive"
                 >
                   <IoLogoOctocat className="logo-github" />
                 </a>
@@ -246,7 +312,9 @@ export default function Landing() {
               <li>
                 <a
                   href="https://www.instagram.com/bbdragon88/"
-                  target="https://www.instagram.com/bbdragon88/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="interactive"
                 >
                   <IoLogoInstagram className="logo-instagram" />
                 </a>
@@ -254,7 +322,9 @@ export default function Landing() {
               <li>
                 <a
                   href="https://www.linkedin.com/in/annalise-murphy/"
-                  target="https://www.linkedin.com/in/annalise-murphy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="interactive"
                 >
                   <IoLogoLinkedin className="logo-linkedin" />
                 </a>
