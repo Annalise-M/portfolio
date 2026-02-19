@@ -111,6 +111,17 @@ export default function Projects() {
             </svg>
           </a>
         </div>
+
+        <footer className="projects-footer">
+          <div className="footer-content">
+            <div className="footer-left">
+              <span className="version-badge">v2.0.0 | Cyberpunk Cosmos</span>
+            </div>
+            <div className="footer-right">
+              <span>© 2026 Annalise Murphy. All rights reserved.</span>
+            </div>
+          </div>
+        </footer>
       </div>
     </section>
   );

@@ -163,6 +163,32 @@
   }
 }
 
+.projects-footer {
+  margin-top: 120px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(106, 219, 106, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+.version-badge {
+  color: rgba(0, 245, 255, 0.6);
+  letter-spacing: 1px;
+}
+
 @media (max-width: 900px) {
   .projects-section {
     padding: 80px 0;

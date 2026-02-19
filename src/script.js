@@ -291,12 +291,16 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="bottom-text" ref={bottomText}>
-            Coding Goddess Version 01.xx.xx
-          </div>
-          <div className="copyright" ref={copyright}>
-            &#169; 2025 by Annalise Murphy. All rights reserved.
-          </div>
+          <footer className="landing-footer">
+            <div className="bottom-text" ref={bottomText}>
+              <span className="version-label">v2.0.0</span>
+              <span className="version-divider">|</span>
+              <span className="version-name">Cyberpunk Cosmos</span>
+            </div>
+            <div className="copyright" ref={copyright}>
+              &#169; 2026 Annalise Murphy. All rights reserved.
+            </div>
+          </footer>
           <div className="media" ref={mediaUlLi}>
             <ul>
               <li>
