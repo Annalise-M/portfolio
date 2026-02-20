@@ -129,12 +129,12 @@
 }
 
 .project-title {
-  font-family: 'Orbitron', 'Murmur', sans-serif;
+  font-family: var(--font-body);
   font-size: 28px;
   font-weight: 700;
   color: #fff;
   margin: 0 0 16px 0;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   background: linear-gradient(135deg, #fff 0%, #6adb6a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

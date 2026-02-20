@@ -45,6 +45,14 @@ export default function Landing() {
   const menuRef = React.useRef();
   const footerRef = React.useRef();
 
+  // Initialize rings to centered position
+  useEffect(() => {
+    gsap.set([ringOne.current, ringTwo.current, ringThree.current, ringFour.current, ringFive.current], {
+      x: 0,
+      y: 0
+    });
+  }, []);
+
   // Rings follow cursor position directly (stacked with different lag)
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -117,6 +125,13 @@ export default function Landing() {
   useEffect(() => {
     const timeline = gsap.timeline();
 
+    // Set all elements to hidden initially
+    gsap.set([logo.current, contact.current, menuRef.current], { autoAlpha: 0, y: 20 });
+    gsap.set([bottomText.current, copyright.current], { autoAlpha: 0, y: 20 });
+    gsap.set(".media ul li", { autoAlpha: 0, y: 20 });
+    gsap.set([p1.current, p2.current], { autoAlpha: 0, y: 20 });
+    gsap.set([one.current, two.current], { autoAlpha: 0, y: 20 });
+
     timeline
       .to(loadingScreen.current, {
         duration: 1.5,
@@ -124,55 +139,55 @@ export default function Landing() {
         top: "-110%",
         ease: ExpoScaleEase.easeInOut,
       })
-      .from(logo.current, {
+      .to(logo.current, {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         ease: ExpoScaleEase.easeInOut,
       }, "-=0.8")
-      .from([contact.current, menuRef.current], {
+      .to([contact.current, menuRef.current], {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         stagger: 0.1,
         ease: ExpoScaleEase.easeInOut,
       }, "-=1.0")
-      .from([bottomText.current, copyright.current], {
+      .to([bottomText.current, copyright.current], {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         stagger: 0.1,
         ease: ExpoScaleEase.easeInOut,
       }, "-=1.0")
-      .from(".media ul li", {
+      .to(".media ul li", {
         duration: 1,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         stagger: 0.1,
         ease: Power3.easeInOut,
       }, "-=1.0")
-      .from(p1.current, {
+      .to(p1.current, {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         ease: ExpoScaleEase.easeInOut,
       }, "-=0.9")
-      .from(p2.current, {
+      .to(p2.current, {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         ease: ExpoScaleEase.easeInOut,
       }, "-=1.0")
-      .from(one.current, {
+      .to(one.current, {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         ease: ExpoScaleEase.easeInOut,
       }, "-=1.0")
-      .from(two.current, {
+      .to(two.current, {
         duration: 1.2,
-        opacity: 0,
-        y: 20,
+        autoAlpha: 1,
+        y: 0,
         ease: ExpoScaleEase.easeInOut,
       }, "-=1.0");
   }, []);
@@ -257,14 +272,14 @@ export default function Landing() {
       if (footer) {
         if (scrollY > 100) {
           gsap.to(footer, {
-            opacity: 0,
+            autoAlpha: 0,
             y: 20,
             duration: 0.3,
             ease: Power3.easeOut
           });
         } else {
           gsap.to(footer, {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             duration: 0.3,
             ease: Power3.easeOut

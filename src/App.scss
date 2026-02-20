@@ -30,30 +30,12 @@ html, body {
 }
 
 body {
-  background: url('./images/hero1.jpeg') no-repeat 50% 50%;
-  background-size: cover;
-  background-attachment: fixed;
+  background: var(--color-bg-dark);
   position: relative;
   cursor: none;
 
   @media (max-width: 900px) {
     cursor: auto;
-  }
-
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(18, 18, 18, 0.50) 0%,
-      rgba(18, 18, 18, 0.70) 100%
-    );
-    pointer-events: none;
-    z-index: 0;
   }
 }
 
@@ -98,6 +80,9 @@ img {
   z-index: 1;
   filter: drop-shadow(0 0 10px rgba(106, 219, 106, 0.5));
   transition: all 0.3s ease;
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .contact {
@@ -172,7 +157,6 @@ img {
   left: 32%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  opacity: 1;
 }
 
 .ml7 {
@@ -198,31 +182,13 @@ img {
 
 h1 {
   color: var(--color-text);
-  font-family: 'Murmur', var(--font-display);
-  font-weight: lighter !important;
+  font-family: var(--font-body);
+  font-weight: 700 !important;
   font-size: 80px !important;
   margin-bottom: 0px;
   text-transform: uppercase !important;
   position: relative;
-
-  &::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover::after {
-    opacity: 1;
-  }
+  letter-spacing: -2px;
 }
 
 #tagline {
@@ -320,12 +286,14 @@ button {
 }
 
 #one {
-  background: rgba(106, 219, 106, 0.05);
-  border: 2px solid rgba(106, 219, 106, 0.3);
+  background: rgba(106, 219, 106, 0.15);
+  border: 2px solid rgba(106, 219, 106, 0.5);
   border-radius: 8px;
   backdrop-filter: blur(10px);
+  color: #ffffff !important;
 
   &:hover {
+    background: rgba(106, 219, 106, 0.25);
     border-color: var(--color-primary);
     box-shadow:
       0 0 30px rgba(106, 219, 106, 0.3),
@@ -335,11 +303,12 @@ button {
 }
 
 #two {
-  background: linear-gradient(135deg, rgba(106, 219, 106, 0.2) 0%, rgba(0, 245, 255, 0.2) 100%);
-  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(106, 219, 106, 0.3) 0%, rgba(0, 245, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 245, 255, 0.4);
   border-radius: 8px;
   position: relative;
   backdrop-filter: blur(10px);
+  color: #ffffff !important;
 
   &::after {
     content: '';
@@ -356,6 +325,7 @@ button {
   }
 
   &:hover {
+    background: linear-gradient(135deg, rgba(106, 219, 106, 0.4) 0%, rgba(0, 245, 255, 0.4) 100%);
     box-shadow:
       0 0 40px rgba(0, 245, 255, 0.4),
       0 0 80px rgba(106, 219, 106, 0.2);
@@ -370,8 +340,9 @@ button {
 .media {
   position: absolute;
   top: 38%;
-  z-index: 100;
+  z-index: 10000;
   right: 6%;
+  pointer-events: auto;
 }
 
 .media ul {
@@ -379,10 +350,15 @@ button {
   list-style: none;
 }
 
+.media ul {
+  padding: 0;
+  margin: 0;
+}
+
 .media ul li {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
   padding: 12px 0;
-  display: inline-block !important;
+  display: block !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -395,8 +371,9 @@ button {
   }
 
   svg {
-    font-size: 24px;
+    font-size: 28px;
     transition: all 0.3s ease;
+    display: block;
   }
 }
 
@@ -483,7 +460,7 @@ a {
   width: 100%;
   height: 100vh;
   background: var(--color-bg-darker);
-  z-index: 9999;
+  z-index: 99999;
   pointer-events: none;
 }
 
@@ -503,19 +480,25 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transform-origin: center center;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
   }
 }
 
 .ringOne {
   z-index: 5;
   opacity: 0.85;
-  width: 35%;
+  width: 300px;
+  height: 300px;
 
   img {
     animation: rotateRing1 8s linear infinite;
@@ -525,7 +508,8 @@ a {
 .ringTwo {
   z-index: 4;
   opacity: 0.7;
-  width: 42%;
+  width: 360px;
+  height: 360px;
 
   img {
     animation: rotateRing2 12s linear infinite reverse;
@@ -535,7 +519,8 @@ a {
 .ringThree {
   z-index: 3;
   opacity: 0.75;
-  width: 30%;
+  width: 250px;
+  height: 250px;
 
   img {
     animation: rotateRing3 6s linear infinite;
@@ -545,7 +530,8 @@ a {
 .ringFour {
   z-index: 2;
   opacity: 0.6;
-  width: 48%;
+  width: 420px;
+  height: 420px;
 
   img {
     animation: rotateRing4 15s linear infinite reverse;
@@ -555,7 +541,8 @@ a {
 .ringFive {
   z-index: 1;
   opacity: 0.8;
-  width: 25%;
+  width: 200px;
+  height: 200px;
 
   img {
     animation: rotateRing5 10s linear infinite;
