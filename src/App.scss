@@ -707,33 +707,7 @@ a {
   }
 
   .media {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 100px !important;
-    right: 50% !important;
-    left: auto !important;
-    transform: translateX(50%) !important;
-    width: auto !important;
-  }
-
-  .media ul {
-    display: flex;
-    flex-direction: row;
-    gap: 28px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .media ul li {
-    padding: 0 !important;
-    margin: 0;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .media ul li svg {
-    font-size: 28px !important;
+    display: none !important;
   }
 
   .landing-footer {
