@@ -376,7 +376,7 @@ export default function Landing() {
               Welcome!
               <br />
               <br />
-              I'm Annalise Murphy, a full-stack engineer specializing in Agentic SDLC. I design and ship end-to-end systems using React, TypeScript, Node.js, and PostgreSQL, with an emphasis on testable APIs, maintainable architecture, and high-quality UX. My current work explores AI-driven agentic systems and advanced interaction patterns, including 3D and motion-rich design interfaces.
+              I'm Annalise Murphy, a full-stack engineer specializing in Agentic SDLC. I design and ship end-to-end systems using React, TypeScript, Node.js, and PostgreSQL, with an emphasis on testable APIs, maintainable architecture, and high quality UX. My current work explores AI driven agentic systems and advanced interaction patterns, including 3D and motion rich design interfaces.
             </section>
 
             <br />
