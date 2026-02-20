@@ -365,11 +365,8 @@ export default function Landing() {
             </script>
 
             <h1 className="ml7" id="title" ref={ml7}>
-              {/* <span className="text-wrapper" ref={textWrapper}> */}
                 <span className="letters" ref={letters}>
-                  {/* Welcome */}
                 </span>
-              {/* </span> */}
             </h1>
 
             <section id="tagline" className="p1" ref={p1}>
