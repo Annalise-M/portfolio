@@ -348,7 +348,7 @@ export default function Landing() {
 
           <div className="logo" ref={logo}>
             <IoIosPlanet className="git-compare" />
-            Annalise Murphy
+            Planet Dev
           </div>
 
           <div className="contact interactive" ref={contact} onClick={handleContact}>
@@ -373,19 +373,16 @@ export default function Landing() {
             </h1>
 
             <section id="tagline" className="p1" ref={p1}>
-              Full-Stack Software Engineer
-              <br /> As an adaptive and creative full-stack software engineer, I have a passion for building innovative solutions that blend cutting-edge technology with thoughtful design. I specialize in modern web technologies including React.js, TypeScript, Node.js &#38; PostgreSQL, with a focus on creating intuitive, performant applications.
+              Welcome!
               <br />
-              {/* In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
-              <br /> */}
-              Currently exploring AI-driven, agentic systems and pushing the boundaries of interactive design with 3D animations (GSAP &#38; Three.js).
+              <br />
+              I'm Annalise Murphy, a full-stack engineer specializing in Agentic SDLC. I design and ship end-to-end systems using React, TypeScript, Node.js, and PostgreSQL, with an emphasis on testable APIs, maintainable architecture, and high-quality UX. My current work explores AI-driven agentic systems and advanced interaction patterns, including 3D and motion-rich design interfaces.
             </section>
 
             <br />
 
             <p id="tagline" className="p2" ref={p2}>
-              Have a project? Shooting for the stars and needing some out of
-              this world designs? Click below you curious cat!
+              Want to work with me? Check out my work & reach out below.
             </p>
 
             <div className="buttons">

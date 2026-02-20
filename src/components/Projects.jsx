@@ -3,42 +3,66 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ProjectCard from './ProjectCard';
 import './Projects.scss';
+import climatripImg from '../images/climatrip.png';
+import pleasantHissImg from '../images/pleasanthiss.png';
+import moodMusicImg from '../images/moodmusic.png';
+import covidRoadImg from '../images/covidroad2020.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Sample project data - you'll replace this with your real projects
-const projectsData = [
+// Projects Built
+const builtProjects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with real-time inventory management, secure payment processing, and admin dashboard. Built with modern best practices and optimized for performance.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/Annalise-M'
+    title: 'ClimaTrip',
+    description: 'Magazine-style Progressive Web App for weather-driven travel planning. Compare weather across multiple destinations with a customizable widget dashboard, offline support for up to 3 locations, and seamless booking integrations. Features drag-and-drop widgets, 7-day forecasts, and GSAP-powered animations.',
+    image: climatripImg,
+    tech: ['React', 'TypeScript', 'SCSS', 'GSAP', 'PWA', 'Vite'],
+    liveUrl: 'https://climatrip.com/',
+    githubUrl: 'https://github.com/Annalise-M/Agentic_SDLC'
   },
   {
-    title: 'Real-Time Chat Application',
-    description: 'WebSocket-powered chat app with channels, direct messaging, file sharing, and presence indicators. Features end-to-end encryption and message threading.',
-    image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800&q=80',
-    tech: ['TypeScript', 'Socket.io', 'Redis', 'MongoDB'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/Annalise-M'
+    title: 'Pleasant Hiss',
+    description: 'Promotional landing page for Twitch streamer, cosplayer, model, and DJ. Features interactive follower animations, subscribe modal, and responsive design with social media integration. Built with vanilla JavaScript for optimal performance.',
+    image: pleasantHissImg,
+    tech: ['JavaScript', 'CSS', 'HTML'],
+    liveUrl: 'https://pleasanthiss.com/',
+    githubUrl: 'https://github.com/Annalise-M/PleasantHiss'
   },
   {
-    title: 'Data Visualization Dashboard',
-    description: 'Interactive analytics dashboard with real-time data streams, customizable widgets, and export capabilities. Processes millions of data points seamlessly.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    tech: ['React', 'D3.js', 'Python', 'FastAPI'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/Annalise-M'
+    title: 'Digital Menu - Backend API',
+    description: 'RESTful backend API for restaurant menu management with secure admin-only access. Built with test-driven development featuring comprehensive CRUD routes, PostgreSQL database integration, and real-time synchronization for menu updates.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
+    tech: ['Node.js', 'Express', 'PostgreSQL', 'Jest'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Annalise-M/Menu-Model'
   },
   {
-    title: 'AI Content Generator',
-    description: 'Machine learning-powered content creation tool with natural language processing, template customization, and multi-language support.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-    tech: ['Next.js', 'OpenAI', 'Prisma', 'Tailwind'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/Annalise-M'
+    title: 'Portfolio v2.0 - Cyberpunk Cosmos',
+    description: 'Interactive portfolio featuring scroll-reactive cosmic backgrounds, animated star fields with parallax effects, and 3D visual animations. Built with modern web technologies and GSAP for smooth, performant animations.',
+    image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80',
+    tech: ['React', 'GSAP', 'Anime.js', 'Three.js', 'SCSS'],
+    liveUrl: 'https://annalisemurphy.netlify.app/',
+    githubUrl: 'https://github.com/Annalise-M/portfolio'
+  }
+];
+
+// Projects I've Contributed To
+const contributedProjects = [
+  {
+    title: 'Mood Music',
+    description: 'Collaborative mood-based music discovery application that recommends songs based on user\'s emotional state. Features responsive design and seamless API integration for personalized music experiences.',
+    image: moodMusicImg,
+    tech: ['React', 'Node.js', 'JavaScript', 'Netlify'],
+    liveUrl: 'https://mood-music.netlify.app',
+    githubUrl: 'https://github.com/Silver-Surfers/Mood-Music-Fe'
+  },
+  {
+    title: 'CovidRoad2020',
+    description: 'Team-built educational game reimagining the classic Oregon Trail through a pandemic lens. Combines historical gameplay mechanics with modern educational content about public health and decision-making.',
+    image: covidRoadImg,
+    tech: ['JavaScript', 'HTML', 'CSS', 'Canvas API'],
+    liveUrl: 'https://covid-road.netlify.app/',
+    githubUrl: 'https://github.com/KOVindicators/CovidRoad2020'
   }
 ];
 
@@ -84,18 +108,42 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="section-subtitle">
-            A selection of recent work showcasing technical expertise and creative problem-solving
+            A showcase of independent builds and collaborative contributions
           </p>
         </div>
 
-        <div className="projects-grid">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-              index={index}
-            />
-          ))}
+        {/* Projects I've Built */}
+        <div className="project-category">
+          <h3 className="category-title">
+            <span className="category-icon">📐</span>
+            Projects Built
+          </h3>
+          <div className="projects-grid">
+            {builtProjects.map((project, index) => (
+              <ProjectCard
+                key={`built-${index}`}
+                {...project}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Projects I've Contributed To */}
+        <div className="project-category">
+          <h3 className="category-title">
+            <span className="category-icon">🤝</span>
+            Team Contributions
+          </h3>
+          <div className="projects-grid">
+            {contributedProjects.map((project, index) => (
+              <ProjectCard
+                key={`contributed-${index}`}
+                {...project}
+                index={index + builtProjects.length}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="more-projects">
