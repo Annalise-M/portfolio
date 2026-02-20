@@ -98,11 +98,8 @@ export default function AnimatedBackground() {
       }
     };
 
-    let frame = 0;
-
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      frame++;
 
       // Draw subtle grid
       drawGrid();

@@ -31,7 +31,6 @@ export default function Landing() {
   const bottomText = React.useRef();
   const copyright = React.useRef();
   const mediaUlLi = React.useRef();
-  const menu = React.useRef();
   const p1 = React.useRef();
   const p2 = React.useRef();
   const one = React.useRef();
