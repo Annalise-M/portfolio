@@ -264,28 +264,33 @@ export default function Landing() {
     window.location.href = `mailto:${email}`;
   };
 
-  // Footer hide on scroll
+  // Footer fade on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const footer = footerRef.current;
 
       if (footer) {
-        if (scrollY > 100) {
-          gsap.to(footer, {
-            autoAlpha: 0,
-            y: 20,
-            duration: 0.3,
-            ease: Power3.easeOut
-          });
-        } else {
-          gsap.to(footer, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.3,
-            ease: Power3.easeOut
-          });
+        // Smooth fade: starts fading at 50px, fully hidden by 200px
+        const fadeStart = 50;
+        const fadeEnd = 200;
+        const scrollRange = fadeEnd - fadeStart;
+
+        let opacity = 1;
+        let translateY = 0;
+
+        if (scrollY > fadeStart) {
+          const fadeProgress = Math.min((scrollY - fadeStart) / scrollRange, 1);
+          opacity = 1 - fadeProgress;
+          translateY = fadeProgress * 20;
         }
+
+        gsap.to(footer, {
+          opacity: opacity,
+          y: translateY,
+          duration: 0.3,
+          ease: Power3.easeOut
+        });
       }
     };
 
