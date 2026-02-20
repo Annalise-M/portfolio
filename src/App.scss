@@ -37,6 +37,36 @@ body {
   @media (max-width: 900px) {
     cursor: auto;
   }
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(18, 18, 18, 0.20) 0%,
+      rgba(18, 18, 18, 0.30) 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+.hero-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
 }
 
 img {
@@ -360,14 +390,34 @@ button {
   padding: 12px 0;
   display: block !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 
   &:hover {
     color: var(--color-primary);
     transform: translateY(-3px);
 
     svg {
-      filter: drop-shadow(0 0 15px rgba(106, 219, 106, 0.6));
+      filter: drop-shadow(0 0 20px rgba(106, 219, 106, 0.8))
+              drop-shadow(0 0 40px rgba(106, 219, 106, 0.4));
+      color: var(--color-primary);
     }
+  }
+
+  &:nth-child(1):hover svg {
+    filter: drop-shadow(0 0 20px rgba(106, 219, 106, 0.8))
+            drop-shadow(0 0 40px rgba(106, 219, 106, 0.4));
+  }
+
+  &:nth-child(2):hover svg {
+    filter: drop-shadow(0 0 20px rgba(255, 71, 150, 0.8))
+            drop-shadow(0 0 40px rgba(255, 71, 150, 0.4));
+    color: #ff4796;
+  }
+
+  &:nth-child(3):hover svg {
+    filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.8))
+            drop-shadow(0 0 40px rgba(0, 245, 255, 0.4));
+    color: var(--color-accent);
   }
 
   svg {

@@ -260,7 +260,8 @@ export default function Landing() {
 
   // Handle contact click
   const handleContact = () => {
-    window.location.href = 'mailto:your-email@example.com';
+    const email = process.env.REACT_APP_CONTACT_EMAIL || 'your-email@example.com';
+    window.location.href = `mailto:${email}`;
   };
 
   // Footer hide on scroll
@@ -343,12 +344,12 @@ export default function Landing() {
             </h1>
 
             <section id="tagline" className="p1" ref={p1}>
-              Software Engineer
-              <br /> As an adaptive and flexible full-stack software engineer, I have a passion for teamwork, problem-solving, and pattern mapping. I have experience with many different modern web technologies including React.js, Typescript, Node.js &#38; PostgreSQL, and am always exploring new ways to improve the world through code.
+              Full-Stack Software Engineer
+              <br /> As an adaptive and creative full-stack software engineer, I have a passion for building innovative solutions that blend cutting-edge technology with thoughtful design. I specialize in modern web technologies including React.js, TypeScript, Node.js &#38; PostgreSQL, with a focus on creating intuitive, performant applications.
               <br />
               {/* In another life, I used to be a virtual nomad, running an online e-commerce business on my computer from in the world. At some point along the way, I missed contributing to a team and became more curious about how I may someday improve the systems that ran the platforms I'd been working on for so long.
               <br /> */}
-              Currently inspired by the latest in 3D animation(s) through programming (GSAP & Three.js).
+              Currently exploring AI-driven, agentic systems and pushing the boundaries of interactive design with 3D animations (GSAP &#38; Three.js).
             </section>
 
             <br />

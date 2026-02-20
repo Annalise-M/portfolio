@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { IoClose } from 'react-icons/io5';
 import './Navigation.scss';
+import { REACTAPPEMAIL } from '../constants';
+
 
 export default function Navigation({ triggerRef }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,7 +94,7 @@ export default function Navigation({ triggerRef }) {
               </a>
             </li>
             <li className="nav-item">
-              <a href="mailto:your-email@example.com" className="interactive">
+              <a href={REACTAPPEMAIL} className="interactive">
                 <span className="item-number">05</span>
                 <span className="item-text">Contact</span>
               </a>
