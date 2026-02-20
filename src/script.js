@@ -298,6 +298,30 @@ export default function Landing() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Hero background reveal on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Calculate scroll progress (0 at top, 1 at bottom)
+      const maxScroll = documentHeight - windowHeight;
+      const scrollProgress = Math.min(scrollY / maxScroll, 1);
+
+      // Reduce dark overlay opacity as you scroll down
+      // At top: overlay at full opacity, at bottom: minimal overlay
+      const overlayOpacity = 0.3 - (scrollProgress * 0.2); // Goes from 0.3 to 0.1
+
+      // Update CSS custom property
+      document.documentElement.style.setProperty('--overlay-opacity', overlayOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Navigation triggerRef={menuRef} />
