@@ -709,7 +709,7 @@ a {
   .media {
     position: fixed;
     top: auto;
-    bottom: 140px;
+    bottom: 180px;
     right: 50%;
     transform: translateX(50%);
     width: auto;
@@ -718,7 +718,7 @@ a {
   .media ul {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 28px;
     justify-content: center;
     align-items: center;
   }
@@ -732,7 +732,11 @@ a {
   }
 
   .media ul li svg {
-    font-size: 32px !important;
+    font-size: 28px !important;
+  }
+
+  .landing-footer {
+    padding-bottom: 32px;
   }
 
   .logo {
