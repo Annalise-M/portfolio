@@ -14,7 +14,7 @@ import {
 import Navigation from "./components/Navigation";
 import originalZen from "./images/originalZen.png";
 import styles from "./App.scss";
-import anime from "animejs/lib/anime.es.js";
+import { createTimeline } from "animejs";
 
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -237,7 +237,7 @@ export default function Landing() {
 
   // Anime.js text animation
   useEffect(() => {
-    anime.timeline({ loop: false }).add({
+    createTimeline({ loop: false }).add({
       targets: ".ml7 .letters",
       translateY: ["1.1em", 0],
       translateX: ["0.55em", 0],
