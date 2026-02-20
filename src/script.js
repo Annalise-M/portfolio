@@ -38,49 +38,73 @@ export default function Landing() {
   const two = React.useRef();
   const ringOne = React.useRef();
   const ringTwo = React.useRef();
+  const ringThree = React.useRef();
+  const ringFour = React.useRef();
+  const ringFive = React.useRef();
   const headerRef = React.useRef();
   const menuRef = React.useRef();
+  const footerRef = React.useRef();
 
-  // Rings follow cursor everywhere with drag effect
+  // Rings follow cursor position directly (stacked with different lag)
   useEffect(() => {
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
 
-      // Calculate position relative to viewport center
+      // Get viewport center (where rings are positioned by default)
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
-      const offsetX = clientX - centerX;
-      const offsetY = clientY - centerY;
 
+      // Calculate how far to move from center to cursor
+      const targetX = clientX - centerX;
+      const targetY = clientY - centerY;
+
+      // Ring 1 - Follows cursor most closely (fastest)
       if (ringOne.current) {
         gsap.to(ringOne.current, {
-          x: offsetX,
-          y: offsetY,
-          rotation: offsetX * 0.02,
-          duration: 0.8,
-          ease: Power3.easeOut,
-          overwrite: 'auto'
+          x: targetX,
+          y: targetY,
+          duration: 0.3,
+          ease: Power3.easeOut
         });
       }
 
+      // Ring 2 - Slightly slower
       if (ringTwo.current) {
         gsap.to(ringTwo.current, {
-          x: offsetX,
-          y: offsetY,
-          rotation: -offsetX * 0.015,
-          duration: 1.2,
-          ease: Power3.easeOut,
-          overwrite: 'auto'
+          x: targetX,
+          y: targetY,
+          duration: 0.5,
+          ease: Power3.easeOut
         });
       }
 
-      if (headerRef.current) {
-        gsap.to(headerRef.current, {
-          x: offsetX * 0.05,
-          y: offsetY * 0.05,
-          duration: 0.8,
-          ease: Power3.easeOut,
-          overwrite: 'auto'
+      // Ring 3 - Medium lag
+      if (ringThree.current) {
+        gsap.to(ringThree.current, {
+          x: targetX,
+          y: targetY,
+          duration: 0.7,
+          ease: Power3.easeOut
+        });
+      }
+
+      // Ring 4 - More lag
+      if (ringFour.current) {
+        gsap.to(ringFour.current, {
+          x: targetX,
+          y: targetY,
+          duration: 0.9,
+          ease: Power3.easeOut
+        });
+      }
+
+      // Ring 5 - Most lag (slowest to follow)
+      if (ringFive.current) {
+        gsap.to(ringFive.current, {
+          x: targetX,
+          y: targetY,
+          duration: 1.1,
+          ease: Power3.easeOut
         });
       }
     };
@@ -153,46 +177,47 @@ export default function Landing() {
       }, "-=1.0");
   }, []);
 
-  // GSAP ring entrance animations
+  // GSAP rings entrance animations (staggered from center)
   useEffect(() => {
-    // Fade in and scale up both rings from center
+    // Individual ring scale and fade-ins with stagger
     gsap.from(ringOne.current, {
-      duration: 2,
-      delay: 0.5,
+      duration: 1.8,
+      delay: 0.8,
       opacity: 0,
       scale: 0.3,
-      rotation: -180,
       ease: ExpoScaleEase.easeInOut,
     });
 
     gsap.from(ringTwo.current, {
-      duration: 3,
-      delay: 1.2,
+      duration: 1.8,
+      delay: 1.0,
       opacity: 0,
-      scale: 0.5,
-      rotation: 180,
+      scale: 0.3,
       ease: ExpoScaleEase.easeInOut,
     });
 
-    // Subtle idle floating animation
-    gsap.to(ringOne.current, {
-      duration: 3,
-      y: "+=15",
-      rotation: "+=5",
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      delay: 4,
+    gsap.from(ringThree.current, {
+      duration: 1.8,
+      delay: 1.2,
+      opacity: 0,
+      scale: 0.3,
+      ease: ExpoScaleEase.easeInOut,
     });
 
-    gsap.to(ringTwo.current, {
-      duration: 4,
-      y: "-=20",
-      rotation: "-=8",
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      delay: 4.5,
+    gsap.from(ringFour.current, {
+      duration: 1.8,
+      delay: 1.4,
+      opacity: 0,
+      scale: 0.3,
+      ease: ExpoScaleEase.easeInOut,
+    });
+
+    gsap.from(ringFive.current, {
+      duration: 1.8,
+      delay: 1.6,
+      opacity: 0,
+      scale: 0.3,
+      ease: ExpoScaleEase.easeInOut,
     });
   }, []);
 
@@ -223,20 +248,57 @@ export default function Landing() {
     window.location.href = 'mailto:your-email@example.com';
   };
 
+  // Footer hide on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const footer = footerRef.current;
+
+      if (footer) {
+        if (scrollY > 100) {
+          gsap.to(footer, {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+            ease: Power3.easeOut
+          });
+        } else {
+          gsap.to(footer, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: Power3.easeOut
+          });
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Navigation triggerRef={menuRef} />
       <section className="landing-section" styles={styles} id="home">
         <div className="container">
           <div className="loading-screen" ref={loadingScreen}></div>
-          <div className="loader">
+          <div className="rings-container">
             <div className="ringOne ring" ref={ringOne}>
               <img src={originalZen} alt="" />
             </div>
-          </div>
-
-          <div className="ringTwo ring" ref={ringTwo}>
-            <img src={originalZen} alt="" />
+            <div className="ringTwo ring" ref={ringTwo}>
+              <img src={originalZen} alt="" />
+            </div>
+            <div className="ringThree ring" ref={ringThree}>
+              <img src={originalZen} alt="" />
+            </div>
+            <div className="ringFour ring" ref={ringFour}>
+              <img src={originalZen} alt="" />
+            </div>
+            <div className="ringFive ring" ref={ringFive}>
+              <img src={originalZen} alt="" />
+            </div>
           </div>
 
           <div className="logo" ref={logo}>
@@ -291,7 +353,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <footer className="landing-footer">
+          <footer className="landing-footer" ref={footerRef}>
             <div className="bottom-text" ref={bottomText}>
               <span className="version-label">v2.0.0</span>
               <span className="version-divider">|</span>
