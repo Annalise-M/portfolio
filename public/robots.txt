@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://annalisemurphy.netlify.app/sitemap.xml
+Sitemap: https://annalisemurphy.dev/sitemap.xml

@@ -41,7 +41,7 @@ const builtProjects = [
     description: 'Interactive portfolio featuring scroll-reactive cosmic backgrounds, animated star fields with parallax effects, and 3D visual animations. Built with modern web technologies and GSAP for smooth, performant animations.',
     image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80',
     tech: ['React', 'GSAP', 'Anime.js', 'Three.js', 'SCSS'],
-    liveUrl: 'https://annalisemurphy.netlify.app/',
+    liveUrl: 'https://annalisemurphy.dev/',
     githubUrl: 'https://github.com/Annalise-M/portfolio'
   }
 ];
