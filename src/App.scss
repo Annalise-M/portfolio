@@ -707,12 +707,13 @@ a {
   }
 
   .media {
-    position: fixed;
-    top: auto;
-    bottom: 180px;
-    right: 50%;
-    transform: translateX(50%);
-    width: auto;
+    position: fixed !important;
+    top: auto !important;
+    bottom: 100px !important;
+    right: 50% !important;
+    left: auto !important;
+    transform: translateX(50%) !important;
+    width: auto !important;
   }
 
   .media ul {
